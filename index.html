@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rotte — da qui a ovunque, porta a porta</title>
+<meta name="description" content="Rotte pianifica viaggi completi porta a porta: aerei, treni, bus, traghetti e trasporti locali. Scegli due punti nel mondo, come vuoi viaggiare e il budget. Gratis, in italiano.">
+<meta property="og:title" content="Rotte — da qui a ovunque, porta a porta">
+<meta property="og:description" content="Itinerari completi con ogni tratta: aerei, treni, bus, traghetti, minibus e tuk-tuk. Veloce, economico o avventuroso.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161a23" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2433'/%3E%3Cpath d='M14 44 Q32 8 50 30' fill='none' stroke='%23f2a541' stroke-width='4' stroke-dasharray='6 5' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='44' r='6' fill='%23f4efe4'/%3E%3Ccircle cx='50' cy='30' r='6' fill='%23e4572e'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4efe4; --paper2:#ebe4d4; --card:#fffdf8; --ink:#1d2433; --ink2:#4b5466; --mute:#8a8f9a; --line:#d9d0bd;
+  --accent:#e4572e; --accent2:#f2a541; --strip:#1d2433; --strip-fg:#f4efe4;
+  --flight:#e4572e; --train:#2a6f97; --bus:#7b4fa0; --ferry:#1b9aaa; --local:#5c8d3a; --taxi:#d4a017;
+  --r:16px; color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{ --paper:#161a23; --paper2:#222836; --card:#1d2230; --ink:#efe8da; --ink2:#bcc2ce; --mute:#8d95a5; --line:#343b4b;
+    --accent:#f06a43; --strip:#0c0f16; --strip-fg:#efe8da;
+    --flight:#f06a43; --train:#5aa7d6; --bus:#a982d2; --ferry:#3cc1cf; --local:#83b95f; --taxi:#e0b53a; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:26px;text-decoration:none;letter-spacing:-.5px}
+.logo span{color:var(--accent)}
+nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2);margin-left:22px}
+nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 22px;border:1.5px solid var(--ink);transition:transform .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:var(--ink);color:var(--paper)}
+.btn.small{padding:9px 16px;font-size:14.5px}
+@media (max-width:720px){ nav a:not(.btn){display:none} }
+
+/* hero */
+.hero{padding:64px 0 40px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+h1{font-family:Fraunces,serif;font-size:clamp(40px,6vw,66px);line-height:1.02;letter-spacing:-1.5px;margin:0 0 18px;font-weight:700;text-wrap:balance}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;color:var(--ink2);margin:0 0 28px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.note{font-size:14px;color:var(--mute);margin-top:14px}
+.note b{color:var(--ink2)}
+@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;gap:36px} .hero{padding-top:40px} }
+
+/* ticket illustration */
+.ticket{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);transform:rotate(1.2deg);position:relative}
+.tstrip{background:var(--strip);color:var(--strip-fg);display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;padding:18px 20px}
+.tstrip small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.tstrip b{font-family:Fraunces,serif;font-size:26px;line-height:1.05}
+.tstrip div:last-child{text-align:right}
+.tline{width:70px;height:2px;margin-bottom:12px;background:repeating-linear-gradient(90deg,var(--accent2) 0 6px,transparent 6px 11px)}
+.thead{padding:14px 20px;border-bottom:2px dashed var(--line);display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink2);position:relative}
+.thead::before,.thead::after{content:"";position:absolute;bottom:-11px;width:20px;height:20px;border-radius:50%;background:var(--paper);border:1px solid var(--line)}
+.thead::before{left:-11px}.thead::after{right:-11px}
+.legs{list-style:none;margin:0;padding:12px 20px 52px}
+.legs li{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:8px 0;font-size:14.5px}
+.legs li+li{border-top:1px dashed var(--line)}
+.legs .m{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:14px}
+.legs small{color:var(--mute);display:block;font-size:12.5px}
+.legs .p{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink2)}
+.stamp{position:absolute;right:16px;bottom:16px;transform:rotate(-10deg);border:2px solid var(--accent);color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 9px;border-radius:6px;opacity:.85}
+
+/* sections */
+section{padding:56px 0}
+.sh{font-family:Fraunces,serif;font-size:clamp(30px,4vw,42px);letter-spacing:-.8px;line-height:1.1;margin:0 0 10px;text-wrap:balance}
+.sub{color:var(--ink2);margin:0 0 30px;max-width:40em}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
+.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font-weight:700;margin-bottom:12px}
+.step h3{margin:0 0 6px;font-size:18px}
+.step p{margin:0;color:var(--ink2);font-size:15.5px}
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.modes span{font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--paper2)}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feat{border-top:3px solid var(--ink);padding-top:14px}
+.feat .ic{font-size:26px}
+.feat h3{margin:6px 0 4px;font-size:18px}
+.feat p{margin:0;color:var(--ink2);font-size:15.5px}
+@media (max-width:860px){ .steps,.feats{grid-template-columns:1fr} }
+.band{background:var(--strip);color:var(--strip-fg);border-radius:24px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
+.band .sh{color:var(--strip-fg)}
+.band p{color:color-mix(in srgb,var(--strip-fg) 75%,transparent);margin:0 0 12px}
+.band ul{margin:0;padding-left:20px;color:color-mix(in srgb,var(--strip-fg) 80%,transparent)}
+.band li{margin:6px 0}
+.band .btn{border-color:var(--strip-fg);background:var(--strip-fg);color:var(--strip)}
+@media (max-width:860px){ .band{grid-template-columns:1fr;padding:28px} }
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--ink2);font-size:15.5px}
+.disclose{font-size:14px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:14px;color:var(--mute)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#" translate="no">Rotte<span>.</span></a>
+    <nav>
+      <a href="#come">Come funziona</a>
+      <a href="#cosa">Cosa fa</a>
+      <a href="#faq">Domande</a>
+      <a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="kicker">Planner di viaggi multimodali</p>
+        <h1>Da qui a ovunque, <em>porta a porta.</em></h1>
+        <p class="lead">Scegli due punti nel mondo, dimmi come vuoi viaggiare e quanto vuoi spendere. Rotte ti dà ogni singolo spostamento: aerei, treni, bus, traghetti, fino al minibus e al tuk-tuk dell'ultimo chilometro.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte <span aria-hidden="true">→</span></a>
+          <a class="btn" href="#come">Come funziona</a>
+        </div>
+        <p class="note"><b>Gratis.</b> Funziona dentro Claude: serve un account Claude, va bene anche quello gratuito.</p>
+      </div>
+
+      <div class="ticket" role="img" aria-label="Esempio di itinerario da Torino a Città del Capo con bus, aereo e navetta">
+        <div class="tstrip"><div><small>Da</small><b>Torino</b></div><span class="tline"></span><div><small>A</small><b>Città del Capo</b></div></div>
+        <div class="thead"><span>🪙 ECONOMICO</span><span>4 TRATTE · 1G 6H</span></div>
+        <ul class="legs">
+          <li><span class="m" style="background:var(--local)">🚇</span><span>Torino centro → Porta Nuova<small>Metro GTT · 15 min</small></span><span class="p">2 €</span></li>
+          <li><span class="m" style="background:var(--bus)">🚌</span><span>Torino → Milano Malpensa<small>Bus · 2 h</small></span><span class="p">8–15 €</span></li>
+          <li><span class="m" style="background:var(--flight)">✈︎</span><span>Malpensa → Città del Capo<small>Volo con scalo · 1 g</small></span><span class="p">390–520 €</span></li>
+          <li><span class="m" style="background:var(--local)">🚐</span><span>Aeroporto → centro città<small>Navetta pubblica · 40 min</small></span><span class="p">6–8 €</span></li>
+        </ul>
+        <span class="stamp">ESEMPIO</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="come">
+    <div class="wrap">
+      <h2 class="sh">Come funziona</h2>
+      <p class="sub">Tre passaggi, un itinerario completo. Ti propone tre opzioni da confrontare, con il percorso disegnato sulla mappa.</p>
+      <div class="steps">
+        <div class="step"><h3>Scegli partenza e arrivo</h3><p>Cerca una città o tocca un punto sulla mappa del mondo.</p></div>
+        <div class="step"><h3>Dimmi come vuoi viaggiare</h3><p>Il più veloce, il più economico o quello più avventuroso, via terra e via mare dove si può.</p>
+          <div class="modes"><span>⚡ Veloce</span><span>🪙 Economico</span><span>🧭 Avventuroso</span></div></div>
+        <div class="step"><h3>Date e budget</h3><p>Date esatte, flessibili o a sorpresa, e quanto vuoi spendere. Ricevi tutte le tratte con costi, durate e dove prenotare.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cosa">
+    <div class="wrap">
+      <h2 class="sh">Cosa trovi dentro</h2>
+      <p class="sub">Pensata per chi viaggia spendendo il giusto e vuole sapere esattamente come arrivare, non solo dove.</p>
+      <div class="feats">
+        <div class="feat"><span class="ic">📍</span><h3>Da A a B, porta a porta</h3><p>Ogni spostamento, dal taxi per l'aeroporto al traghetto, con prezzi indicativi e link per prenotare.</p></div>
+        <div class="feat"><span class="ic">🧭</span><h3>Esplora a tappe</h3><p>Non sai ancora dove finire? Parti, scegli la tappa successiva tra quelle che il budget ti permette, e così via.</p></div>
+        <div class="feat"><span class="ic">✨</span><h3>Cosa fare</h3><p>Per ogni meta, le cose da non perdere e quelle fuori dai soliti giri: luoghi strani, cibo locale, tradizioni.</p></div>
+        <div class="feat"><span class="ic">🛺</span><h3>Trasporti locali</h3><p>Minibus, taxi collettivi, tuk-tuk e mototaxi: come si chiamano, quanto costano e come si pagano.</p></div>
+        <div class="feat"><span class="ic">🛂</span><h3>Visti e documenti</h3><p>Per ogni paese, anche negli scali, cosa serve per entrare con il tuo passaporto.</p></div>
+        <div class="feat"><span class="ic">⤓</span><h3>Porta il viaggio con te</h3><p>Esporta l'itinerario come pagina da stampare, testo o calendario da importare in Google Calendar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="band">
+        <div>
+          <h2 class="sh">Perché serve un account Claude</h2>
+          <p>Rotte è costruita su Claude, l'assistente di Anthropic. Gli itinerari li prepara il <b>tuo</b> Claude, con il tuo account: per questo l'app è gratis e non chiede iscrizioni.</p>
+          <ul>
+            <li>Va bene anche l'account Claude gratuito.</li>
+            <li>Alla prima richiesta Claude ti chiede il permesso.</li>
+            <li>I tuoi viaggi restano salvati solo nel tuo browser.</li>
+          </ul>
+        </div>
+        <div><a class="btn" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte in Claude <span aria-hidden="true">↗</span></a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="sh">Domande frequenti</h2>
+      <details><summary>È gratis?</summary><p>Sì. Rotte non costa nulla. Se prenoti da alcuni link presenti nell'app, Rotte può ricevere una piccola commissione dal sito di prenotazione, senza nessun costo aggiuntivo per te.</p></details>
+      <details><summary>I prezzi sono quelli veri?</summary><p>Sono stime basate sulle tariffe tipiche del periodo. Prima di prenotare controlla sempre il prezzo aggiornato sul sito collegato a ogni tratta.</p></details>
+      <details><summary>Devo installare qualcosa?</summary><p>No. Si apre nel browser o nell'app Claude. Sul telefono puoi aggiungerla alla schermata Home per ritrovarla come un'app.</p></details>
+      <details><summary>Le informazioni sui visti sono affidabili?</summary><p>Sono indicazioni di massima. Prima di partire verifica sempre su viaggiaresicuri.it e sul sito dell'ambasciata del paese di destinazione.</p></details>
+      <details><summary>Chi vede i miei viaggi?</summary><p>Nessuno. I viaggi che crei si salvano nel tuo browser. Gli itinerari li genera il tuo account Claude, secondo le sue condizioni d'uso.</p></details>
+      <p class="disclose">Trasparenza: alcuni link di prenotazione presenti in Rotte sono link di affiliazione. Se prenoti tramite questi link, Rotte riceve una commissione dal sito partner; il prezzo per te non cambia. Prezzi, orari e requisiti di ingresso sono indicativi. Rotte è un progetto indipendente e non è affiliato ad Anthropic.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b translate="no">Rotte.</b> da qui a ovunque, porta a porta · © 2026</span>
+    <span>Contatti: <a href="mailto:LA-TUA-EMAIL">LA-TUA-EMAIL</a></span>
+  </div>
+</footer>
+</body>
+</html>
