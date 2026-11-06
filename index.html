@@ -108,6 +108,13 @@ details p{margin:10px 0 0;color:var(--ink2);font-size:15.5px}
 .disclose{font-size:14px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
 footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:14px;color:var(--mute)}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);padding:16px 18px;font-size:14.5px;color:var(--ink2)}
+.cookie[hidden]{display:none}
+.cookie p{margin:0 0 12px}
+.cookie .row{display:flex;gap:10px;flex-wrap:wrap}
+.cookie button{font:inherit;font-weight:700;border-radius:999px;padding:9px 18px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+.cookie button.ok{background:var(--ink);color:var(--paper)}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
 </style>
 </head>
@@ -205,6 +212,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <details><summary>I prezzi sono quelli veri?</summary><p>Sono stime basate sulle tariffe tipiche del periodo. Prima di prenotare controlla sempre il prezzo aggiornato sul sito collegato a ogni tratta.</p></details>
       <details><summary>Devo installare qualcosa?</summary><p>No. Si apre nel browser o nell'app Claude. Sul telefono puoi aggiungerla alla schermata Home per ritrovarla come un'app.</p></details>
       <details><summary>Le informazioni sui visti sono affidabili?</summary><p>Sono indicazioni di massima. Prima di partire verifica sempre su viaggiaresicuri.it e sul sito dell'ambasciata del paese di destinazione.</p></details>
+      <details><summary>Questo sito usa cookie?</summary><p>Solo se li accetti. Con il tuo consenso carichiamo uno strumento di Travelpayouts che misura i clic sui link di viaggio e riconosce le prenotazioni fatte tramite i link di affiliazione. Se rifiuti, il sito funziona lo stesso e non viene caricato nulla. Puoi cambiare scelta quando vuoi: <button class="linkbtn" type="button" id="cookie-reset">rivedi le preferenze sui cookie</button>.</p></details>
       <details><summary>Chi vede i miei viaggi?</summary><p>Nessuno. I viaggi che crei si salvano nel tuo browser. Gli itinerari li genera il tuo account Claude, secondo le sue condizioni d'uso.</p></details>
       <p class="disclose">Trasparenza: alcuni link di prenotazione presenti in Rotte sono link di affiliazione. Se prenoti tramite questi link, Rotte riceve una commissione dal sito partner; il prezzo per te non cambia. Prezzi, orari e requisiti di ingresso sono indicativi. Rotte è un progetto indipendente e non è affiliato ad Anthropic.</p>
     </div>
@@ -214,8 +222,36 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 <footer>
   <div class="wrap">
     <span><b translate="no">Rotte.</b> da qui a ovunque, porta a porta · © 2026</span>
-    <span>Contatti: <a href="mailto:LA-TUA-EMAIL">LA-TUA-EMAIL</a></span>
+    <span>Contatti: <a href="mailto:alessiorandazzo259@gmail.com">alessiorandazzo259@gmail.com</a></span>
   </div>
 </footer>
+
+<div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Preferenze sui cookie" hidden>
+  <p>Usiamo un servizio di Travelpayouts che, con il tuo consenso, salva cookie per misurare i clic sui link di viaggio e riconoscere le prenotazioni affiliate. Senza consenso non viene caricato nulla.</p>
+  <div class="row"><button class="ok" type="button" id="cookie-yes">Accetta</button><button type="button" id="cookie-no">Rifiuta</button></div>
+</div>
+<script>
+(function(){
+  var KEY="rotte-cookie";
+  function loadDrive(){
+    if (document.getElementById("tp-drive")) return;
+    var script = document.createElement("script");
+    script.id = "tp-drive";
+    script.async = 1;
+    script.setAttribute("data-cmp-ab","2");
+    script.src = 'https://tpembars.com/NTk2OTAy.js?t=596902';
+    document.head.appendChild(script);
+  }
+  function get(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
+  function set(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+  var box=document.getElementById("cookie");
+  var choice=get();
+  if (choice==="yes") loadDrive();
+  else if (choice!=="no") box.hidden=false;
+  document.getElementById("cookie-yes").onclick=function(){ set("yes"); box.hidden=true; loadDrive(); };
+  document.getElementById("cookie-no").onclick=function(){ set("no"); box.hidden=true; };
+  document.getElementById("cookie-reset").onclick=function(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); };
+})();
+</script>
 </body>
 </html>
