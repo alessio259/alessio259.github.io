@@ -76,6 +76,18 @@ h1 em{font-style:normal;color:var(--accent)}
 .legs .p{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink2)}
 .stamp{position:absolute;right:16px;bottom:16px;transform:rotate(-10deg);border:2px solid var(--accent);color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 9px;border-radius:6px;opacity:.85}
 
+/* guida */
+.guide{list-style:none;margin:0;padding:0;counter-reset:g;display:grid;gap:14px}
+.guide li{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.guide li::before{counter-increment:g;content:counter(g);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:18px}
+.guide h3{margin:2px 0 6px;font-size:18px}
+.guide p{margin:0 0 6px;color:var(--ink2);font-size:15.5px}
+.guide .btn{margin-top:8px}
+.ui{font-family:"JetBrains Mono",monospace;font-size:13.5px;background:var(--paper2);border-radius:6px;padding:1px 7px;white-space:nowrap;color:var(--ink)}
+.tip{font-size:14.5px;color:var(--mute);margin-top:18px}
+.fb{border:2px dashed var(--accent);border-radius:24px;padding:36px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
+.fb p{color:var(--ink2);margin:0}
+@media (max-width:860px){ .fb{grid-template-columns:1fr;padding:26px} .guide li{grid-template-columns:1fr;gap:10px} }
 /* sections */
 section{padding:56px 0}
 .sh{font-family:Fraunces,serif;font-size:clamp(30px,4vw,42px);letter-spacing:-.8px;line-height:1.1;margin:0 0 10px;text-wrap:balance}
@@ -126,6 +138,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <nav>
       <a href="#come">Come funziona</a>
       <a href="#cosa">Cosa fa</a>
+      <a href="#guida">Guida</a>
       <a href="#faq">Domande</a>
       <a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte</a>
     </nav>
@@ -141,7 +154,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <p class="lead">Scegli due punti nel mondo, dimmi come vuoi viaggiare e quanto vuoi spendere. Rotte ti dà ogni singolo spostamento: aerei, treni, bus, traghetti, fino al minibus e al tuk-tuk dell'ultimo chilometro.</p>
         <div class="cta">
           <a class="btn primary" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte <span aria-hidden="true">→</span></a>
-          <a class="btn" href="#come">Come funziona</a>
+          <a class="btn" href="#guida">Guida in 2 minuti</a>
         </div>
         <p class="note"><b>Gratis.</b> Funziona dentro Claude: serve un account Claude, va bene anche quello gratuito.</p>
       </div>
@@ -184,6 +197,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <div class="feat"><span class="ic">🛺</span><h3>Trasporti locali</h3><p>Minibus, taxi collettivi, tuk-tuk e mototaxi: come si chiamano, quanto costano e come si pagano.</p></div>
         <div class="feat"><span class="ic">🛂</span><h3>Visti e documenti</h3><p>Per ogni paese, anche negli scali, cosa serve per entrare con il tuo passaporto.</p></div>
         <div class="feat"><span class="ic">⤓</span><h3>Porta il viaggio con te</h3><p>Esporta l'itinerario come pagina da stampare, testo o calendario da importare in Google Calendar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="guida">
+    <div class="wrap">
+      <h2 class="sh">Guida per iniziare</h2>
+      <p class="sub">La prima volta servono un paio di minuti. Segui questi passaggi e al primo tentativo hai il tuo itinerario.</p>
+      <ol class="guide">
+        <li><div><h3>Crea un account Claude (gratis)</h3><p>Rotte funziona dentro Claude. Se non hai ancora un account, crealo su <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> con la tua email o con Google: va bene quello gratuito. Se ce l'hai già, salta questo passaggio.</p></div></li>
+        <li><div><h3>Apri Rotte</h3><p>Tocca il pulsante qui sotto: Rotte si apre in Claude. Alla prima apertura trovi una breve presentazione, chiudila con <span class="ui">Ho capito, iniziamo</span>.</p><a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte ↗</a></div></li>
+        <li><div><h3>Prepara il primo viaggio</h3><p>In <span class="ui">📍 Da A a B</span> scrivi la partenza e l'arrivo, oppure tocca la mappa. Scegli lo stile (veloce, economico o avventuroso), le date e il budget, poi premi <span class="ui">Trova il percorso →</span>.</p><p>Per provare subito: <b>Torino → Lisbona</b>, economico, date flessibili.</p></div></li>
+        <li><div><h3>Dai il permesso a Claude</h3><p>La prima volta Claude ti chiede se Rotte può usarlo per preparare l'itinerario: accetta. È il tuo account Claude a fare il lavoro, per questo l'app è gratis.</p></div></li>
+        <li><div><h3>Confronta le proposte</h3><p>Ricevi tre opzioni con tutte le tratte, i tempi e i costi. Con <span class="ui">Vedi le proposte sulla mappa</span> guardi il percorso; ogni tratta ha il link per controllare il prezzo e prenotare.</p></div></li>
+        <li><div><h3>Il resto da scoprire</h3><p><span class="ui">🧭 Esplora a tappe</span> se non sai ancora dove finire, <span class="ui">✨ Cosa fare</span> per le esperienze in ogni meta, <span class="ui">⤓ Esporta</span> per stampare il viaggio o metterlo nel calendario.</p></div></li>
+      </ol>
+      <p class="tip">Sul telefono: apri Rotte nel browser, poi “Aggiungi a schermata Home” per ritrovarla come un'app.</p>
+    </div>
+  </section>
+
+  <section id="feedback">
+    <div class="wrap">
+      <div class="fb">
+        <div>
+          <h2 class="sh">Dimmi com'è andata</h2>
+          <p>Rotte è appena nata e la sto migliorando con chi la prova. Dopo averla usata, rispondi a un questionario di 2 minuti: anonimo, e le critiche sono le più utili.</p>
+        </div>
+        <div><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeKiaJAYPn3UwVmbqerRkLhc8Sj-ujhgxQUT3BJXHFPHig8dw/viewform" target="_blank" rel="noopener">Rispondi al questionario ↗</a></div>
       </div>
     </div>
   </section>
