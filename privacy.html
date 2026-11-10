@@ -6,6 +6,8 @@
 <title>Privacy e cookie · Rotte</title>
 <meta name="robots" content="noindex">
 <style>
+@font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(media/fraunces-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:swap;src:url(media/manrope-latin-wght-normal.woff2) format("woff2")}
 :root{--paper:#f4efe4;--card:#fffdf8;--ink:#1d2433;--ink2:#4b5466;--mute:#8a8f9a;--line:#d9d0bd;--accent:#e4572e;color-scheme:light dark}
 @media (prefers-color-scheme:dark){:root{--paper:#161a23;--card:#1d2230;--ink:#efe8da;--ink2:#bcc2ce;--mute:#8d95a5;--line:#343b4b;--accent:#f06a43}}
 *{box-sizing:border-box}body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:16.5px}
@@ -32,7 +34,8 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color
 <h2>Il sito (alessio259.github.io)</h2>
 <ul>
 <li><b>Hosting.</b> Il sito è ospitato da GitHub Pages (GitHub, Inc.). Come ogni server, GitHub può registrare dati tecnici come l'indirizzo IP per sicurezza e funzionamento: vedi la <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">informativa di GitHub</a>.</li>
-<li><b>Caratteri tipografici.</b> I font della pagina vengono caricati da Google Fonts: per scaricarli il browser comunica a Google il tuo indirizzo IP. Vedi la <a href="https://policies.google.com/privacy?hl=it" target="_blank" rel="noopener">privacy di Google</a>.</li>
+<li><b>Caratteri tipografici.</b> I font sono ospitati direttamente su questo sito: per mostrarli il browser non contatta servizi esterni.</li>
+<li><b>Statistiche delle visite.</b> Per contare le visite il sito può usare Cloudflare Web Analytics, che non usa cookie, non salva dati nel tuo browser e fornisce solo numeri aggregati (pagine viste, paese, tipo di dispositivo). Vedi la <a href="https://www.cloudflare.com/it-it/privacypolicy/" target="_blank" rel="noopener">privacy di Cloudflare</a>.</li>
 <li><b>Preferenze salvate nel browser.</b> Il sito salva nel tuo browser solo la tua scelta sui cookie e se hai già visto la richiesta d'invito. Non lasciano il tuo dispositivo.</li>
 </ul>
 
@@ -64,5 +67,13 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color
 
 </div></main>
 <footer><div class="wrap"><span><b translate="no">Rotte.</b> · © 2026</span><span><a href="privacy.html">Privacy e cookie</a> · <a href="termini.html">Termini d'uso</a> · <a href="mailto:alessiorandazzo259@gmail.com">alessiorandazzo259@gmail.com</a></span></div></footer>
+<script>
+// Statistiche senza cookie (Cloudflare Web Analytics): si attivano inserendo il token qui sotto.
+(function(){
+  var TOKEN=""; if(!TOKEN) return;
+  var s=document.createElement("script"); s.defer=true; s.src="https://static.cloudflareinsights.com/beacon.min.js";
+  s.setAttribute("data-cf-beacon", JSON.stringify({token:TOKEN})); document.head.appendChild(s);
+})();
+</script>
 </body>
 </html>
