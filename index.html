@@ -88,6 +88,17 @@ h1 em{font-style:normal;color:var(--accent)}
 .fb{border:2px dashed var(--accent);border-radius:24px;padding:36px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
 .fb p{color:var(--ink2);margin:0}
 @media (max-width:860px){ .fb{grid-template-columns:1fr;padding:26px} .guide li{grid-template-columns:1fr;gap:10px} }
+/* invito */
+dialog.inv{border:1px solid var(--line);border-radius:20px;background:var(--card);color:var(--ink);padding:26px 26px 22px;max-width:460px;width:calc(100% - 32px);box-shadow:0 30px 70px -20px rgba(0,0,0,.5)}
+dialog.inv::backdrop{background:rgba(10,12,18,.55)}
+dialog.inv h2{font-family:Fraunces,serif;font-size:28px;margin:0 0 8px;letter-spacing:-.5px}
+dialog.inv p{margin:0 0 12px;color:var(--ink2);font-size:15.5px}
+dialog.inv ol{margin:0 0 16px;padding-left:20px;color:var(--ink2);font-size:15.5px}
+dialog.inv li{margin:6px 0}
+dialog.inv .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+dialog.inv button.btn{font:inherit;font-weight:700;cursor:pointer;background:transparent;color:var(--ink)}
+dialog.inv .x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:26px;line-height:1;color:var(--mute);cursor:pointer}
+dialog.inv .mail{font-family:"JetBrains Mono",monospace;font-size:14px;background:var(--paper2);border-radius:8px;padding:2px 8px;color:var(--ink)}
 /* sections */
 section{padding:56px 0}
 .sh{font-family:Fraunces,serif;font-size:clamp(30px,4vw,42px);letter-spacing:-.8px;line-height:1.1;margin:0 0 10px;text-wrap:balance}
@@ -140,7 +151,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#cosa">Cosa fa</a>
       <a href="#guida">Guida</a>
       <a href="#faq">Domande</a>
-      <a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte</a>
+      <a class="btn primary small open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte</span></a>
     </nav>
   </div>
 </header>
@@ -153,7 +164,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
         <h1>Da qui a ovunque, <em>porta a porta.</em></h1>
         <p class="lead">Scegli due punti nel mondo, dimmi come vuoi viaggiare e quanto vuoi spendere. Rotte ti dà ogni singolo spostamento: aerei, treni, bus, traghetti, fino al minibus e al tuk-tuk dell'ultimo chilometro.</p>
         <div class="cta">
-          <a class="btn primary" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte <span aria-hidden="true">→</span></a>
+          <a class="btn primary open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte</span> <span aria-hidden="true">→</span></a>
           <a class="btn" href="#guida">Guida in 2 minuti</a>
         </div>
         <p class="note"><b>Gratis, su invito.</b> Funziona dentro Claude: serve un account Claude (va bene quello gratuito) e un invito di Alessio. <a href="#guida">Come si fa</a></p>
@@ -243,7 +254,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
             <li>I tuoi viaggi restano salvati solo nel tuo browser.</li>
           </ul>
         </div>
-        <div><a class="btn" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte in Claude <span aria-hidden="true">↗</span></a></div>
+        <div><a class="btn open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte in Claude</span> <span aria-hidden="true">↗</span></a></div>
       </div>
     </div>
   </section>
@@ -268,6 +279,22 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     <span>Contatti: <a href="mailto:alessiorandazzo259@gmail.com">alessiorandazzo259@gmail.com</a></span>
   </div>
 </footer>
+
+<dialog class="inv" id="inv" aria-labelledby="inv-t">
+  <button type="button" class="x" id="inv-x" aria-label="Chiudi">×</button>
+  <h2 id="inv-t">Chiedi l'invito</h2>
+  <p>Per ora Rotte è su invito: funziona con il tuo account Claude, dopo che Alessio ti ha aggiunto.</p>
+  <ol>
+    <li>Se non hai un account Claude, crealo gratis su <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a>.</li>
+    <li>Manda ad Alessio <b>l'email con cui accedi a Claude</b>: <span class="mail">alessiorandazzo259@gmail.com</span></li>
+    <li>Quando ti ha invitato, torna qui e apri Rotte con quell'account.</li>
+  </ol>
+  <div class="row">
+    <a class="btn primary" id="inv-mail" href="mailto:alessiorandazzo259@gmail.com?subject=Invito%20a%20Rotte&body=Ciao%20Alessio!%20La%20mia%20email%20di%20Claude%20%C3%A8%3A%20">Scrivi ad Alessio ↗</a>
+    <button type="button" class="btn" id="inv-copy">Copia indirizzo</button>
+  </div>
+  <p style="margin:16px 0 0;font-size:14.5px">Hai già l'invito? <a href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener" id="inv-open"><b>Apri Rotte</b></a></p>
+</dialog>
 
 <div class="cookie" id="cookie" role="dialog" aria-live="polite" aria-label="Preferenze sui cookie" hidden>
   <p>Usiamo un servizio di Travelpayouts che, con il tuo consenso, salva cookie per misurare i clic sui link di viaggio e riconoscere le prenotazioni affiliate. Senza consenso non viene caricato nulla.</p>
@@ -294,6 +321,35 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   document.getElementById("cookie-yes").onclick=function(){ set("yes"); box.hidden=true; loadDrive(); };
   document.getElementById("cookie-no").onclick=function(){ set("no"); box.hidden=true; };
   document.getElementById("cookie-reset").onclick=function(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); };
+})();
+</script>
+<script>
+// Prima volta: i pulsanti "Apri Rotte" diventano "Chiedi l'invito" e aprono la finestra dell'invito.
+// Dopo il primo uso (richiesta inviata o "ho già l'invito") tornano "Apri Rotte" e aprono l'app.
+(function(){
+  var KEY="rotte-invito";
+  function seen(){ try { return localStorage.getItem(KEY)==="1"; } catch(e){ return false; } }
+  function mark(){ try { localStorage.setItem(KEY,"1"); } catch(e){} paint(); }
+  var btns=[].slice.call(document.querySelectorAll(".open-rotte"));
+  btns.forEach(function(b){ b.dataset.lbl=b.querySelector(".lbl").textContent; });
+  function paint(){ var s=seen(); btns.forEach(function(b){ b.querySelector(".lbl").textContent = s ? b.dataset.lbl : "Chiedi l'invito"; }); }
+  var dlg=document.getElementById("inv");
+  btns.forEach(function(b){ b.addEventListener("click", function(e){
+    if (seen()) return;
+    e.preventDefault();
+    if (dlg.showModal) dlg.showModal(); else location.hash="guida";
+  }); });
+  document.getElementById("inv-x").onclick=function(){ dlg.close(); };
+  dlg.addEventListener("click", function(e){ if (e.target===dlg) dlg.close(); });
+  [].slice.call(document.querySelectorAll('a[href^="mailto:alessiorandazzo259@gmail.com?subject=Invito"]')).forEach(function(m){ m.addEventListener("click", function(){ mark(); }); });
+  document.getElementById("inv-open").addEventListener("click", function(){ mark(); dlg.close(); });
+  document.getElementById("inv-copy").onclick=function(){
+    var t=this, addr="alessiorandazzo259@gmail.com";
+    function done(){ t.textContent="Copiato ✓"; mark(); }
+    if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, function(){ prompt("Copia l'indirizzo:", addr); mark(); });
+    else { prompt("Copia l'indirizzo:", addr); mark(); }
+  };
+  paint();
 })();
 </script>
 </body>
