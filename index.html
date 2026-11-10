@@ -19,9 +19,14 @@
 <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161a23" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2433'/%3E%3Cpath d='M14 44 Q32 8 50 30' fill='none' stroke='%23f2a541' stroke-width='4' stroke-dasharray='6 5' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='44' r='6' fill='%23f4efe4'/%3E%3Ccircle cx='50' cy='30' r='6' fill='%23e4572e'/%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:Fraunces;font-style:normal;font-weight:500;font-display:swap;src:url(media/fraunces-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(media/fraunces-latin-700-normal.woff2) format("woff2")}
+@font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:swap;src:url(media/manrope-latin-wght-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(media/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+</style>
+<link rel="preload" href="media/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="media/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{
   --paper:#f4efe4; --paper2:#ebe4d4; --card:#fffdf8; --ink:#1d2433; --ink2:#4b5466; --mute:#8a8f9a; --line:#d9d0bd;
@@ -147,6 +152,17 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .cookie button.ok{background:var(--ink);color:var(--paper)}
 .linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+/* demo */
+.demo .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+.phone{width:min(300px,78vw);aspect-ratio:600/1298;border-radius:38px;padding:10px;background:var(--strip);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);margin:0 auto}
+.phone video,.phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;background:var(--paper2)}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0;padding:0;list-style:none}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:600/1298;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--line);background:var(--paper2)}
+.shots figcaption{font-size:13.5px;color:var(--ink2);margin-top:8px;line-height:1.35}
+.shots figcaption b{color:var(--ink);display:block;font-size:14.5px}
+.vctl{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink2);background:none;border:0;text-decoration:underline;cursor:pointer}
+@media (max-width:860px){ .demo .wrap{grid-template-columns:1fr;gap:0} .demo .dtext{display:contents} .demo .sh{order:1} .demo .sub{order:2} .demo .dvid{order:3;margin-bottom:30px} .shots{order:4;grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
@@ -188,6 +204,25 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
           <li><span class="m" style="background:var(--local)">🚐</span><span>Aeroporto → centro città<small>Navetta pubblica · 40 min</small></span><span class="p">6–8 €</span></li>
         </ul>
         <span class="stamp">ESEMPIO</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" class="demo">
+    <div class="wrap">
+      <div class="dvid">
+        <div class="phone"><video id="demo-video" src="media/rotte-demo.mp4" poster="media/demo-poster.webp" muted loop playsinline preload="metadata" aria-label="Video: Rotte prepara un viaggio da Torino a Bangkok e la lista di cosa portare"></video></div>
+        <button class="vctl" id="demo-ctl" type="button">Metti in pausa</button>
+      </div>
+      <div class="dtext">
+        <h2 class="sh">Guardala in azione</h2>
+        <p class="sub">Da Torino a Bangkok in mezzo minuto: partenza e arrivo, stile di viaggio, l'itinerario con ogni tratta e la lista di cosa portare. Dati di esempio.</p>
+        <ul class="shots">
+          <li><figure><img src="media/rotte-rotta.webp" alt="Schermata: scelta di partenza e arrivo sulla mappa" loading="lazy" width="600" height="1298"><figcaption><b>Scegli la rotta</b>Due punti qualsiasi nel mondo.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-itinerario.webp" alt="Schermata: itinerario con bus, aereo, treno e tuk-tuk, costi e durate" loading="lazy" width="600" height="1298"><figcaption><b>Ogni tratta</b>Mezzo, durata, costo e dove prenotare.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-esplora.webp" alt="Schermata: proposte di tappe successive da Bangkok sulla mappa" loading="lazy" width="600" height="1298"><figcaption><b>Esplora a tappe</b>Scegli dove andare dopo, col budget.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-zaino.webp" alt="Schermata: lista di cosa portare con spunte e link ai negozi" loading="lazy" width="600" height="1298"><figcaption><b>Cosa portare</b>La lista per tutto il viaggio.</figcaption></figure></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -358,6 +393,24 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     else { prompt("Copia l'indirizzo:", addr); mark(); }
   };
   paint();
+})();
+</script>
+<script>
+// Video della demo: parte solo quando è visibile e se non è chiesto di ridurre le animazioni.
+(function(){
+  var v=document.getElementById("demo-video"), b=document.getElementById("demo-ctl"); if(!v||!b) return;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches, user=false;
+  function label(){ b.textContent = v.paused ? "Guarda il video" : "Metti in pausa"; }
+  b.onclick=function(){ user=true; if(v.paused) v.play().catch(function(){}); else v.pause(); };
+  v.addEventListener("play",label); v.addEventListener("pause",label); label();
+  if (reduce || !("IntersectionObserver" in window)) return;
+  new IntersectionObserver(function(es){ es.forEach(function(e){ if(user) return; if(e.isIntersecting) v.play().catch(function(){}); else v.pause(); }); },{threshold:.4}).observe(v);
+})();
+// Statistiche senza cookie (Cloudflare Web Analytics): si attivano inserendo il token qui sotto.
+(function(){
+  var TOKEN=""; if(!TOKEN) return;
+  var s=document.createElement("script"); s.defer=true; s.src="https://static.cloudflareinsights.com/beacon.min.js";
+  s.setAttribute("data-cf-beacon", JSON.stringify({token:TOKEN})); document.head.appendChild(s);
 })();
 </script>
 </body>
