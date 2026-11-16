@@ -16,157 +16,183 @@
 <meta property="og:locale" content="it_IT">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://alessio259.github.io/">
-<meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#161a23" media="(prefers-color-scheme: dark)">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d2433'/%3E%3Cpath d='M14 44 Q32 8 50 30' fill='none' stroke='%23f2a541' stroke-width='4' stroke-dasharray='6 5' stroke-linecap='round'/%3E%3Ccircle cx='14' cy='44' r='6' fill='%23f4efe4'/%3E%3Ccircle cx='50' cy='30' r='6' fill='%23e4572e'/%3E%3C/svg%3E">
+<link rel="alternate" hreflang="it" href="https://alessio259.github.io/?lang=it">
+<link rel="alternate" hreflang="en" href="https://alessio259.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://alessio259.github.io/">
+<meta name="theme-color" content="#08131c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308131c'/%3E%3Ccircle cx='32' cy='32' r='20' fill='%23123049'/%3E%3Cpath d='M18 38 Q32 12 46 30' fill='none' stroke='%23f0643c' stroke-width='4' stroke-dasharray='6 5' stroke-linecap='round'/%3E%3Ccircle cx='18' cy='38' r='5' fill='%23f3ecdf'/%3E%3Ccircle cx='46' cy='30' r='5' fill='%23f2a541'/%3E%3C/svg%3E">
 <style>
-@font-face{font-family:Fraunces;font-style:normal;font-weight:500;font-display:swap;src:url(media/fraunces-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:Fraunces;font-style:normal;font-weight:700;font-display:swap;src:url(media/fraunces-latin-700-normal.woff2) format("woff2")}
 @font-face{font-family:Manrope;font-style:normal;font-weight:200 800;font-display:swap;src:url(media/manrope-latin-wght-normal.woff2) format("woff2")}
-@font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:500;font-display:swap;src:url(media/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Bricolage Grotesque";font-style:normal;font-weight:200 800;font-display:swap;src:url(media/bricolage-grotesque-latin-wght-normal.woff2) format("woff2")}
 </style>
+<link rel="preload" href="media/bricolage-grotesque-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="media/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 :root{
-  --paper:#f4efe4; --paper2:#ebe4d4; --card:#fffdf8; --ink:#1d2433; --ink2:#4b5466; --mute:#8a8f9a; --line:#d9d0bd;
-  --accent:#e4572e; --accent2:#f2a541; --strip:#1d2433; --strip-fg:#f4efe4;
-  --flight:#e4572e; --train:#2a6f97; --bus:#7b4fa0; --ferry:#1b9aaa; --local:#5c8d3a; --taxi:#d4a017;
-  --r:16px; color-scheme:light dark;
-}
-@media (prefers-color-scheme:dark){
-  :root{ --paper:#161a23; --paper2:#222836; --card:#1d2230; --ink:#efe8da; --ink2:#bcc2ce; --mute:#8d95a5; --line:#343b4b;
-    --accent:#f06a43; --strip:#0c0f16; --strip-fg:#efe8da;
-    --flight:#f06a43; --train:#5aa7d6; --bus:#a982d2; --ferry:#3cc1cf; --local:#83b95f; --taxi:#e0b53a; }
+  --night:#08131c; --deep:#0d1f2d; --panel:#0f2536; --ink:#f3ecdf; --ink2:#b9c3cc; --mute:#8794a0; --line:#22384a;
+  --accent:#f0643c; --gold:#f2a541; --land:#cbb48a;
+  --flight:#f0643c; --train:#5aa7d6; --bus:#b48ad8; --ferry:#3cc1cf; --local:#8cc56a;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:Manrope,system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;font-size:17px}
+body{margin:0;background:var(--night);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:17px;line-height:1.55}
 a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
-:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:6px}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:"Bricolage Grotesque",Manrope,sans-serif;letter-spacing:-.02em;margin:0;text-wrap:balance}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* header */
-header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font-family:Fraunces,serif;font-weight:700;font-size:26px;text-decoration:none;letter-spacing:-.5px}
+header{position:absolute;top:0;left:0;right:0;z-index:10}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:Fraunces,serif;font-weight:700;font-size:30px;text-decoration:none;letter-spacing:-.5px}
 .logo span{color:var(--accent)}
-nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2);margin-left:22px}
+nav{display:flex;align-items:center;gap:26px}
+nav a{text-decoration:none;font-weight:600;font-size:15px;color:var(--ink2)}
 nav a:hover{color:var(--ink)}
-.btn{display:inline-flex;align-items:center;gap:8px;text-decoration:none;font-weight:700;border-radius:999px;padding:13px 22px;border:1.5px solid var(--ink);transition:transform .15s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font:inherit;font-weight:700;font-size:16px;text-decoration:none;border-radius:999px;padding:14px 24px;border:1.5px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer;transition:transform .15s}
 .btn:hover{transform:translateY(-1px)}
-.btn.primary{background:var(--ink);color:var(--paper)}
-.btn.small{padding:9px 16px;font-size:14.5px}
-@media (max-width:720px){ nav a:not(.btn){display:none} }
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#1a0d07}
+.btn.small{padding:10px 18px;font-size:15px}
+nav .btn{color:#1a0d07}
+.langbtn{font:inherit;font-size:13.5px;font-weight:700;letter-spacing:.06em;color:var(--ink2);background:transparent;border:1.5px solid var(--line);border-radius:999px;padding:7px 12px;cursor:pointer}
+.langbtn:hover{color:var(--ink);border-color:var(--ink2)}
+@media (max-width:820px){ nav a:not(.btn){display:none} nav{gap:12px} }
 
 /* hero */
-.hero{padding:64px 0 40px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
-.kicker{font-family:"JetBrains Mono",monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
-h1{font-family:Fraunces,serif;font-size:clamp(40px,6vw,66px);line-height:1.02;letter-spacing:-1.5px;margin:0 0 18px;font-weight:700;text-wrap:balance}
-h1 em{font-style:normal;color:var(--accent)}
-.lead{font-size:19px;color:var(--ink2);margin:0 0 28px;max-width:34em}
-.cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.note{font-size:14px;color:var(--mute);margin-top:14px}
-.note b{color:var(--ink2)}
-@media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;gap:36px} .hero{padding-top:40px} }
+.hero{position:relative;overflow:clip}
+#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:start;padding-top:124px;padding-bottom:90px}
+.globecol{position:sticky;top:84px}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.kicker::before{content:"";width:28px;height:2px;background:var(--gold)}
+.hero h1{font-size:clamp(44px,4.9vw,70px);line-height:.98;font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:19px;color:var(--ink2);max-width:30em;margin:22px 0 30px}
+.cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.note{font-size:14px;color:var(--mute);margin-top:16px}
+.globebox{position:relative;aspect-ratio:1/1;width:100%;max-width:min(78vh,660px);margin:0 auto}
+#globe{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y}
+#globe:active{cursor:grabbing}
+.hint{display:flex;justify-content:center;align-items:center;gap:8px;font-size:13px;color:var(--mute);margin-top:6px}
+.hint svg{width:16px;height:16px}
+.picker h2{font-size:13px;font-family:Manrope,sans-serif;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:44px 0 12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:15px;font-weight:600;color:var(--ink);background:rgba(255,255,255,.04);border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;cursor:pointer}
+.chips button:hover{border-color:var(--ink2)}
+.chips button[aria-pressed="true"]{background:var(--ink);color:var(--night);border-color:var(--ink)}
+.trip{margin-top:18px;background:rgba(13,31,45,.88);border:1px solid var(--line);border-radius:18px;padding:20px 22px;backdrop-filter:blur(6px)}
+.trip .top{display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap}
+.trip h3{font-size:26px}
+.trip .meta{font-size:14px;color:var(--ink2)}
+.legs{list-style:none;margin:14px 0 0;padding:0}
+.legs li{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:7px 0;border-top:1px dashed var(--line)}
+.legs li:first-child{border-top:0}
+.m{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:var(--night);flex:none}
+.m svg{width:18px;height:18px}
+.legs small{display:block;color:var(--mute);font-size:13px}
+.legs .p{font-size:14px;color:var(--ink2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.est{font-size:12.5px;color:var(--mute);margin:10px 0 0}
 
-/* ticket illustration */
-.ticket{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.35);transform:rotate(1.2deg);position:relative}
-.tstrip{background:var(--strip);color:var(--strip-fg);display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;padding:18px 20px}
-.tstrip small{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.6}
-.tstrip b{font-family:Fraunces,serif;font-size:26px;line-height:1.05}
-.tstrip div:last-child{text-align:right}
-.tline{width:70px;height:2px;margin-bottom:12px;background:repeating-linear-gradient(90deg,var(--accent2) 0 6px,transparent 6px 11px)}
-.thead{padding:14px 20px;border-bottom:2px dashed var(--line);display:flex;justify-content:space-between;font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink2);position:relative}
-.thead::before,.thead::after{content:"";position:absolute;bottom:-11px;width:20px;height:20px;border-radius:50%;background:var(--paper);border:1px solid var(--line)}
-.thead::before{left:-11px}.thead::after{right:-11px}
-.legs{list-style:none;margin:0;padding:12px 20px 52px}
-.legs li{display:grid;grid-template-columns:30px 1fr auto;gap:12px;align-items:center;padding:8px 0;font-size:14.5px}
-.legs li+li{border-top:1px dashed var(--line)}
-.legs .m{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:14px}
-.legs small{color:var(--mute);display:block;font-size:12.5px}
-.legs .p{font-family:"JetBrains Mono",monospace;font-size:13px;color:var(--ink2)}
-.stamp{position:absolute;right:16px;bottom:16px;transform:rotate(-10deg);border:2px solid var(--accent);color:var(--accent);font-family:"JetBrains Mono",monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:4px 9px;border-radius:6px;opacity:.85}
+/* sections */
+section.band{padding:110px 0;position:relative;overflow:hidden}
+.alt{background:var(--deep)}
+.contours{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.band .wrap{position:relative}
+.sh{font-size:clamp(36px,4.6vw,62px);line-height:1.02;font-weight:800;max-width:15em}
+.sub{color:var(--ink2);max-width:38em;margin:18px 0 0}
+.trail{position:relative;margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.trail svg.path{position:absolute;left:0;right:0;top:0;width:100%;height:60px;overflow:visible}
+.wp .pin{position:relative;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#1a0d07;display:grid;place-items:center;font-family:"Bricolage Grotesque";font-weight:800;font-size:22px;box-shadow:0 0 0 8px var(--deep)}
+.wp h3{font-size:28px;margin:22px 0 8px}
+.wp p{color:var(--ink2);margin:0}
+.grid3{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);border-radius:20px;padding:26px;background:var(--deep);display:flex;flex-direction:column;gap:10px}
+.night .card{background:var(--deep)} .alt .card{background:var(--night)}
+.card svg{width:32px;height:32px;color:var(--gold)}
+.card h3{font-size:24px}
+.card p{color:var(--ink2);margin:0;font-size:16px}
 
-/* guida */
-.guide{list-style:none;margin:0;padding:0;counter-reset:g;display:grid;gap:14px}
-.guide li{display:grid;grid-template-columns:44px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
-.guide li::before{counter-increment:g;content:counter(g);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:18px}
-.guide h3{margin:2px 0 6px;font-size:18px}
-.guide p{margin:0 0 6px;color:var(--ink2);font-size:15.5px}
+/* demo */
+.demo .wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+.phone{width:min(290px,78vw);aspect-ratio:600/1298;border-radius:38px;padding:10px;background:#000;border:1px solid var(--line);margin:0 auto;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
+.phone video{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;background:var(--deep)}
+.vctl{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink2);background:none;border:0;text-decoration:underline;cursor:pointer}
+.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 0;padding:0;list-style:none}
+.shots figure{margin:0}
+.shots img{display:block;width:100%;height:auto;aspect-ratio:600/1298;object-fit:cover;object-position:top;border-radius:14px;border:1px solid var(--line);background:var(--deep)}
+.shots figcaption{font-size:13.5px;color:var(--ink2);margin-top:8px;line-height:1.35}
+.shots figcaption b{color:var(--ink);display:block;font-size:14.5px}
+
+/* guide */
+.guide{list-style:none;margin:48px 0 0;padding:0;counter-reset:g;display:grid;gap:12px;max-width:880px}
+.guide li{display:grid;grid-template-columns:46px 1fr;gap:18px;background:var(--night);border:1px solid var(--line);border-radius:18px;padding:20px 22px}
+.guide li::before{counter-increment:g;content:counter(g);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);color:#1a0d07;font-family:"Bricolage Grotesque";font-weight:800;font-size:19px}
+.guide h3{font-size:21px;margin:2px 0 6px}
+.guide p{margin:0 0 6px;color:var(--ink2);font-size:16px}
 .guide .btn{margin-top:8px}
-.ui{font-family:"JetBrains Mono",monospace;font-size:13.5px;background:var(--paper2);border-radius:6px;padding:1px 7px;white-space:nowrap;color:var(--ink)}
+.ui{font-size:14px;background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:1px 8px;white-space:nowrap;color:var(--ink)}
 .tip{font-size:14.5px;color:var(--mute);margin-top:18px}
-.fb{border:2px dashed var(--accent);border-radius:24px;padding:36px;display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
-.fb p{color:var(--ink2);margin:0}
-@media (max-width:860px){ .fb{grid-template-columns:1fr;padding:26px} .guide li{grid-template-columns:1fr;gap:10px} }
-/* invito */
-dialog.inv{border:1px solid var(--line);border-radius:20px;background:var(--card);color:var(--ink);padding:26px 26px 22px;max-width:460px;width:calc(100% - 32px);box-shadow:0 30px 70px -20px rgba(0,0,0,.5)}
-dialog.inv::backdrop{background:rgba(10,12,18,.55)}
-dialog.inv h2{font-family:Fraunces,serif;font-size:28px;margin:0 0 8px;letter-spacing:-.5px}
+
+/* feedback + claude */
+.split{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;border:1px solid var(--line);border-radius:24px;padding:40px;background:var(--deep)}
+.split.dash{border:2px dashed var(--accent);background:transparent}
+.split p{color:var(--ink2);margin:12px 0 0}
+.split ul{margin:14px 0 0;padding-left:20px;color:var(--ink2)}
+.split li{margin:6px 0}
+
+/* faq */
+details{background:var(--deep);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px;max-width:880px}
+summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--ink2);font-size:16px}
+.disclose{font-size:14px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:30px;max-width:880px}
+.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
+
+.final{padding:120px 0;text-align:center}
+.final h2{font-size:clamp(40px,6vw,84px);line-height:.98;font-weight:800}
+.final p{color:var(--ink2);margin:20px auto 32px;max-width:32em}
+footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--mute);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer b{font-family:Fraunces,serif;color:var(--ink)} footer b span{color:var(--accent)}
+
+/* invite dialog + cookie */
+dialog.inv{border:1px solid var(--line);border-radius:20px;background:var(--deep);color:var(--ink);padding:26px 26px 22px;max-width:460px;width:calc(100% - 32px);box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+dialog.inv::backdrop{background:rgba(4,8,12,.7)}
+dialog.inv h2{font-size:28px;margin:0 0 8px}
 dialog.inv p{margin:0 0 12px;color:var(--ink2);font-size:15.5px}
 dialog.inv ol{margin:0 0 16px;padding-left:20px;color:var(--ink2);font-size:15.5px}
 dialog.inv li{margin:6px 0}
 dialog.inv .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-dialog.inv button.btn{font:inherit;font-weight:700;cursor:pointer;background:transparent;color:var(--ink)}
 dialog.inv .x{position:absolute;top:10px;right:14px;border:0;background:none;font-size:26px;line-height:1;color:var(--mute);cursor:pointer}
-dialog.inv .mail{font-family:"JetBrains Mono",monospace;font-size:14px;background:var(--paper2);border-radius:8px;padding:2px 8px;color:var(--ink)}
-/* sections */
-section{padding:56px 0}
-.sh{font-family:Fraunces,serif;font-size:clamp(30px,4vw,42px);letter-spacing:-.8px;line-height:1.1;margin:0 0 10px;text-wrap:balance}
-.sub{color:var(--ink2);margin:0 0 30px;max-width:40em}
-.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:s}
-.step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--paper);font-weight:700;margin-bottom:12px}
-.step h3{margin:0 0 6px;font-size:18px}
-.step p{margin:0;color:var(--ink2);font-size:15.5px}
-.modes{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.modes span{font-size:13px;font-weight:700;border-radius:999px;padding:4px 10px;background:var(--paper2)}
-.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.feat{border-top:3px solid var(--ink);padding-top:14px}
-.feat .ic{font-size:26px}
-.feat h3{margin:6px 0 4px;font-size:18px}
-.feat p{margin:0;color:var(--ink2);font-size:15.5px}
-@media (max-width:860px){ .steps,.feats{grid-template-columns:1fr} }
-.band{background:var(--strip);color:var(--strip-fg);border-radius:24px;padding:40px;display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}
-.band .sh{color:var(--strip-fg)}
-.band p{color:color-mix(in srgb,var(--strip-fg) 75%,transparent);margin:0 0 12px}
-.band ul{margin:0;padding-left:20px;color:color-mix(in srgb,var(--strip-fg) 80%,transparent)}
-.band li{margin:6px 0}
-.band .btn{border-color:var(--strip-fg);background:var(--strip-fg);color:var(--strip)}
-@media (max-width:860px){ .band{grid-template-columns:1fr;padding:28px} }
-details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px}
-summary{font-weight:700;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::after{content:"+";font-size:22px;line-height:1;color:var(--accent)}
-details[open] summary::after{content:"–"}
-details p{margin:10px 0 0;color:var(--ink2);font-size:15.5px}
-.disclose{font-size:14px;color:var(--mute);border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
-footer{border-top:1px solid var(--line);padding:28px 0 40px;font-size:14px;color:var(--mute)}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.45);padding:16px 18px;font-size:14.5px;color:var(--ink2)}
+dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;padding:2px 8px;color:var(--ink)}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin:0 auto;background:var(--deep);border:1px solid var(--line);border-radius:16px;box-shadow:0 20px 50px -20px rgba(0,0,0,.7);padding:16px 18px;font-size:14.5px;color:var(--ink2)}
 .cookie[hidden]{display:none}
 .cookie p{margin:0 0 12px}
 .cookie .row{display:flex;gap:10px;flex-wrap:wrap}
 .cookie button{font:inherit;font-weight:700;border-radius:999px;padding:9px 18px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
-.cookie button.ok{background:var(--ink);color:var(--paper)}
-.linkbtn{font:inherit;background:none;border:0;padding:0;color:inherit;text-decoration:underline;cursor:pointer}
+.cookie button.ok{background:var(--ink);color:var(--night)}
+
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr;padding-top:92px;gap:10px}
+  .globecol{position:relative;top:0;order:-1}
+  .globebox{max-width:440px}
+  .trail,.grid3{grid-template-columns:1fr}
+  .trail svg.path{display:none}
+  .demo .wrap{grid-template-columns:1fr;gap:28px}
+  .shots{grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:1fr;padding:26px}
+  .guide li{grid-template-columns:1fr;gap:10px}
+  section.band{padding:80px 0}
+}
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
-/* demo */
-.demo .wrap{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
-.phone{width:min(300px,78vw);aspect-ratio:600/1298;border-radius:38px;padding:10px;background:var(--strip);box-shadow:0 30px 60px -30px rgba(0,0,0,.5);margin:0 auto}
-.phone video,.phone img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;background:var(--paper2)}
-.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0;padding:0;list-style:none}
-.shots figure{margin:0}
-.shots img{display:block;width:100%;height:auto;aspect-ratio:600/1298;object-fit:cover;object-position:top;border-radius:16px;border:1px solid var(--line);background:var(--paper2)}
-.shots figcaption{font-size:13.5px;color:var(--ink2);margin-top:8px;line-height:1.35}
-.shots figcaption b{color:var(--ink);display:block;font-size:14.5px}
-.vctl{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink2);background:none;border:0;text-decoration:underline;cursor:pointer}
-@media (max-width:860px){ .demo .wrap{grid-template-columns:1fr;gap:0} .demo .dtext{display:contents} .demo .sh{order:1} .demo .sub{order:2} .demo .dvid{order:3;margin-bottom:30px} .shots{order:4;grid-template-columns:repeat(2,1fr)} }
 </style>
 </head>
 <body>
-
 <header>
   <div class="wrap">
     <a class="logo" href="#" translate="no">Rotte<span>.</span></a>
@@ -175,126 +201,132 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
       <a href="#cosa">Cosa fa</a>
       <a href="#guida">Guida</a>
       <a href="#faq">Domande</a>
+      <button type="button" class="langbtn" id="lang">EN</button>
       <a class="btn primary small open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte</span></a>
     </nav>
   </div>
 </header>
 
 <main>
-  <section class="hero">
+  <section class="hero" aria-label="Rotte">
+    <canvas id="stars" aria-hidden="true"></canvas>
     <div class="wrap">
       <div>
-        <p class="kicker">Planner di viaggi multimodali</p>
-        <h1>Da qui a ovunque, <em>porta a porta.</em></h1>
-        <p class="lead">Scegli due punti nel mondo, dimmi come vuoi viaggiare e quanto vuoi spendere. Rotte ti dà ogni singolo spostamento: aerei, treni, bus, traghetti, fino al minibus e al tuk-tuk dell'ultimo chilometro.</p>
+        <p class="kicker">Da qui a ovunque, porta a porta</p>
+        <h1>Gira il mondo.<br>Scegli la tua <em>rotta.</em></h1>
+        <p class="lead">Scegli due punti sul mappamondo: Rotte ti mostra ogni tratta per arrivarci, dal volo al traghetto, fino al tuk-tuk dell'ultimo chilometro.</p>
         <div class="cta">
           <a class="btn primary open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte</span> <span aria-hidden="true">→</span></a>
           <a class="btn" href="#guida">Guida in 2 minuti</a>
         </div>
-        <p class="note"><b>Gratis, su invito.</b> Funziona dentro Claude: serve un account Claude (va bene quello gratuito) e un invito di Alessio. <a href="#guida">Come si fa</a></p>
+        <p class="note">Gratis, su invito. Funziona dentro Claude: serve un account Claude (va bene quello gratuito) e un invito di Alessio.</p>
+        <div class="picker">
+          <h2>Prova una rotta: il mappamondo ti segue</h2>
+          <div class="chips" id="chips" role="group" aria-label="Rotte di esempio"></div>
+          <div class="trip" id="trip" aria-live="polite"></div>
+        </div>
       </div>
-
-      <div class="ticket" role="img" aria-label="Esempio di itinerario da Torino a Città del Capo con bus, aereo e navetta">
-        <div class="tstrip"><div><small>Da</small><b>Torino</b></div><span class="tline"></span><div><small>A</small><b>Città del Capo</b></div></div>
-        <div class="thead"><span>🪙 ECONOMICO</span><span>4 TRATTE · 1G 6H</span></div>
-        <ul class="legs">
-          <li><span class="m" style="background:var(--local)">🚇</span><span>Torino centro → Porta Nuova<small>Metro GTT · 15 min</small></span><span class="p">2 €</span></li>
-          <li><span class="m" style="background:var(--bus)">🚌</span><span>Torino → Milano Malpensa<small>Bus · 2 h</small></span><span class="p">8–15 €</span></li>
-          <li><span class="m" style="background:var(--flight)">✈︎</span><span>Malpensa → Città del Capo<small>Volo con scalo · 1 g</small></span><span class="p">390–520 €</span></li>
-          <li><span class="m" style="background:var(--local)">🚐</span><span>Aeroporto → centro città<small>Navetta pubblica · 40 min</small></span><span class="p">6–8 €</span></li>
-        </ul>
-        <span class="stamp">ESEMPIO</span>
+      <div class="globecol">
+        <div class="globebox">
+          <svg id="globe" role="img" aria-label="Mappamondo con le rotte di esempio. Trascinalo per farlo girare, oppure scegli una rotta dall'elenco." tabindex="0"></svg>
+        </div>
+        <p class="hint" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg>Trascina per far girare il mondo</p>
       </div>
     </div>
   </section>
 
-  <section id="demo" class="demo">
+  <section class="band alt" id="come">
+    <svg class="contours" data-seed="11" aria-hidden="true"></svg>
     <div class="wrap">
-      <div class="dvid">
-        <div class="phone"><video id="demo-video" src="media/rotte-demo.mp4" poster="media/demo-poster.webp" muted loop playsinline preload="metadata" aria-label="Video: Rotte prepara un viaggio da Torino a Bangkok e la lista di cosa portare"></video></div>
+      <p class="kicker">Come funziona</p>
+      <h2 class="sh">Tre tappe, e sei già in viaggio.</h2>
+      <div class="trail">
+        <svg class="path" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true"><path d="M20 22 C 200 70, 300 -20, 500 22 S 800 70, 980 22" fill="none" stroke="#f2a541" stroke-width="2" stroke-dasharray="6 8" vector-effect="non-scaling-stroke"/></svg>
+        <div class="wp"><div class="pin">1</div><h3>Scegli due punti</h3><p>Una città, un villaggio, un punto toccato sulla mappa. Aggiungi le soste che vuoi lungo la strada.</p></div>
+        <div class="wp"><div class="pin">2</div><h3>Decidi come</h3><p>Il più veloce, il più economico o il più avventuroso. Anche in auto, camper o bici, in tenda o in ostello. Poi date e budget.</p></div>
+        <div class="wp"><div class="pin">3</div><h3>Parti</h3><p>Tre proposte con ogni tratta, orari, costi e dove prenotare. Poi il ritorno, le cose da fare e cosa mettere nello zaino.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band demo" id="demo">
+    <svg class="contours" data-seed="23" aria-hidden="true"></svg>
+    <div class="wrap">
+      <div>
+        <div class="phone"><video id="demo-video" poster="media/demo-poster.webp" muted loop playsinline preload="metadata" aria-label="Video: Rotte prepara un viaggio da Torino a Bangkok e la lista di cosa portare"><source src="media/rotte-demo.webm" type="video/webm"></video></div>
         <button class="vctl" id="demo-ctl" type="button">Metti in pausa</button>
       </div>
-      <div class="dtext">
-        <h2 class="sh">Guardala in azione</h2>
-        <p class="sub">Da Torino a Bangkok in mezzo minuto: partenza e arrivo, stile di viaggio, l'itinerario con ogni tratta e la lista di cosa portare. Dati di esempio.</p>
+      <div>
+        <p class="kicker">Guardala in azione</p>
+        <h2 class="sh">Da Torino a Bangkok in mezzo minuto.</h2>
+        <p class="sub">Partenza e arrivo, stile di viaggio, l'itinerario con ogni tratta e la lista di cosa portare. Dati di esempio.</p>
         <ul class="shots">
-          <li><figure><img src="media/rotte-rotta.webp" alt="Schermata: scelta di partenza e arrivo sulla mappa" loading="lazy" width="600" height="1298"><figcaption><b>Scegli la rotta</b>Due punti qualsiasi nel mondo.</figcaption></figure></li>
-          <li><figure><img src="media/rotte-itinerario.webp" alt="Schermata: itinerario con bus, aereo, treno e tuk-tuk, costi e durate" loading="lazy" width="600" height="1298"><figcaption><b>Ogni tratta</b>Mezzo, durata, costo e dove prenotare.</figcaption></figure></li>
-          <li><figure><img src="media/rotte-esplora.webp" alt="Schermata: proposte di tappe successive da Bangkok sulla mappa" loading="lazy" width="600" height="1298"><figcaption><b>Esplora a tappe</b>Scegli dove andare dopo, col budget.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-rotta.webp" alt="Schermata: Torino e Bangkok scelti sul mappamondo" loading="lazy" width="600" height="1298"><figcaption><b>Scegli la rotta</b>Due punti qualsiasi nel mondo.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-itinerario.webp" alt="Schermata: itinerario da Torino a Bangkok con bus, aereo, treno e tuk-tuk, costi e durate" loading="lazy" width="600" height="1298"><figcaption><b>Ogni tratta</b>Mezzo, durata, costo e dove prenotare.</figcaption></figure></li>
+          <li><figure><img src="media/rotte-esplora.webp" alt="Schermata: proposte di tappe da Bangkok verso Chiang Mai, Hanoi, Siem Reap e altre mete" loading="lazy" width="600" height="1298"><figcaption><b>Esplora a tappe</b>Scegli dove andare dopo, col budget.</figcaption></figure></li>
           <li><figure><img src="media/rotte-zaino.webp" alt="Schermata: lista di cosa portare con spunte e link ai negozi" loading="lazy" width="600" height="1298"><figcaption><b>Cosa portare</b>La lista per tutto il viaggio.</figcaption></figure></li>
         </ul>
       </div>
     </div>
   </section>
 
-  <section id="come">
+  <section class="band alt" id="cosa">
+    <svg class="contours" data-seed="29" aria-hidden="true"></svg>
     <div class="wrap">
-      <h2 class="sh">Come funziona</h2>
-      <p class="sub">Tre passaggi, un itinerario completo. Ti propone tre opzioni da confrontare, con il percorso disegnato sulla mappa.</p>
-      <div class="steps">
-        <div class="step"><h3>Scegli partenza e arrivo</h3><p>Cerca una città o tocca un punto sulla mappa del mondo.</p></div>
-        <div class="step"><h3>Dimmi come vuoi viaggiare</h3><p>Il più veloce, il più economico o quello più avventuroso, via terra e via mare dove si può.</p>
-          <div class="modes"><span>⚡ Veloce</span><span>🪙 Economico</span><span>🧭 Avventuroso</span></div></div>
-        <div class="step"><h3>Date e budget</h3><p>Date esatte, flessibili o a sorpresa, e quanto vuoi spendere. Ricevi tutte le tratte con costi, durate e dove prenotare.</p></div>
+      <p class="kicker">Cosa fa</p>
+      <h2 class="sh">Tutto quello che serve per partire.</h2>
+      <p class="sub">Pensata per chi viaggia spendendo il giusto e vuole sapere esattamente come arrivare, non solo dove. In italiano e in inglese.</p>
+      <div class="grid3">
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></svg><h3>Da A a B, porta a porta</h3><p>Ogni spostamento, dal taxi per l'aeroporto al traghetto, con prezzi indicativi e link per prenotare.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m16.24 7.76-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg><h3>Esplora a tappe</h3><p>Non sai ancora dove finire? Parti, scegli la tappa dopo tra quelle che il budget ti permette, e così via.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg><h3>Cosa fare</h3><p>Per ogni meta, le cose da non perdere e quelle fuori dai soliti giri: luoghi strani, cibo locale, tradizioni.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M8 10h8"/><path d="M8 18h8"/><path d="M8 22v-6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v6"/><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/></svg><h3>Cosa portare</h3><p>Lo zaino per tutto il viaggio, secondo clima, mezzi e alloggi, con il link per quello che ti manca.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="11" r="2.5"/><path d="M5.5 17c.8-1.8 2-2.6 3.5-2.6s2.7.8 3.5 2.6"/><path d="M15 9h3"/><path d="M15 13h3"/></svg><h3>Visti e documenti</h3><p>Per ogni paese, anche negli scali, cosa serve per entrare con il tuo passaporto.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/><path d="M9 4v5"/><path d="M8 14h8"/></svg><h3>I miei viaggi</h3><p>Salva, riapri e modifica le tratte a mano. Chiedi anche il ritorno, poi esporta il viaggio da stampare o in Google Calendar.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/><circle cx="19" cy="8" r="1.5"/></svg><h3>Quando costa meno</h3><p>Accanto all'itinerario, i prezzi stimati per settimana o per mese: scegli il periodo più conveniente e rifai il viaggio su quelle date.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20 12 4l9 16z"/><path d="M12 20v-6"/><path d="M9 20l3-6 3 6"/></svg><h3>A modo tuo</h3><p>Con i mezzi pubblici o con la tua auto, il camper, la moto o la bici. Dormi in tenda, in ostello, in couchsurfing o in hotel. Aggiungi soste e notti lungo la strada.</p></div>
+        <div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8"/><path d="M8 12h8"/><path d="M8 16h5"/></svg><h3>Il tuo programma</h3><p>Metti da parte le esperienze che ti piacciono e aggiungi le tue: il programma del viaggio, da esportare e portare con te.</p></div>
       </div>
     </div>
   </section>
 
-  <section id="cosa">
+  <section class="band" id="guida">
+    <svg class="contours" data-seed="41" aria-hidden="true"></svg>
     <div class="wrap">
-      <h2 class="sh">Cosa trovi dentro</h2>
-      <p class="sub">Pensata per chi viaggia spendendo il giusto e vuole sapere esattamente come arrivare, non solo dove.</p>
-      <div class="feats">
-        <div class="feat"><span class="ic">📍</span><h3>Da A a B, porta a porta</h3><p>Ogni spostamento, dal taxi per l'aeroporto al traghetto, con prezzi indicativi e link per prenotare.</p></div>
-        <div class="feat"><span class="ic">🧭</span><h3>Esplora a tappe</h3><p>Non sai ancora dove finire? Parti, scegli la tappa successiva tra quelle che il budget ti permette, e così via.</p></div>
-        <div class="feat"><span class="ic">✨</span><h3>Cosa fare</h3><p>Per ogni meta, le cose da non perdere e quelle fuori dai soliti giri: luoghi strani, cibo locale, tradizioni.</p></div>
-        <div class="feat"><span class="ic">🛺</span><h3>Trasporti locali</h3><p>Minibus, taxi collettivi, tuk-tuk e mototaxi: come si chiamano, quanto costano e come si pagano.</p></div>
-        <div class="feat"><span class="ic">🛂</span><h3>Visti e documenti</h3><p>Per ogni paese, anche negli scali, cosa serve per entrare con il tuo passaporto.</p></div>
-        <div class="feat"><span class="ic">⤓</span><h3>Porta il viaggio con te</h3><p>Esporta l'itinerario come pagina da stampare, testo o calendario da importare in Google Calendar.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="guida">
-    <div class="wrap">
-      <h2 class="sh">Guida per iniziare</h2>
+      <p class="kicker">Guida per iniziare</p>
+      <h2 class="sh">Pronti a partire in due minuti.</h2>
       <p class="sub">La prima volta servono un paio di minuti, più il tempo dell'invito. Segui questi passaggi e al primo tentativo hai il tuo itinerario.</p>
       <ol class="guide">
         <li><div><h3>Crea un account Claude (gratis)</h3><p>Rotte funziona dentro Claude. Se non hai ancora un account, crealo su <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> con la tua email o con Google: va bene quello gratuito. Se ce l'hai già, salta questo passaggio.</p></div></li>
         <li><div><h3>Chiedi l'invito</h3><p>Per ora Rotte è su invito. Manda ad Alessio <b>l'email con cui accedi a Claude</b>: ti aggiunge lui e ti arriva una notifica. Senza invito la pagina si apre, ma non crea itinerari.</p><a class="btn small" href="mailto:alessiorandazzo259@gmail.com?subject=Invito%20a%20Rotte">Chiedi l'invito ↗</a><p class="tip" style="margin-top:8px">Oppure scrivi ad alessiorandazzo259@gmail.com.</p></div></li>
-        <li><div><h3>Apri Rotte</h3><p>Dopo l'invito, apri Rotte dal pulsante qui sotto, con lo stesso account Claude. Alla prima apertura trovi una breve presentazione, chiudila con <span class="ui">Ho capito, iniziamo</span>.</p><a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte ↗</a></div></li>
-        <li><div><h3>Prepara il primo viaggio</h3><p>In <span class="ui">📍 Da A a B</span> scrivi la partenza e l'arrivo, oppure tocca la mappa. Scegli lo stile (veloce, economico o avventuroso), le date e il budget, poi premi <span class="ui">Trova il percorso →</span>.</p><p>Per provare subito: <b>Torino → Lisbona</b>, economico, date flessibili.</p></div></li>
+        <li><div><h3>Apri Rotte</h3><p>Dopo l'invito, apri Rotte con lo stesso account Claude. Alla prima apertura trovi una breve presentazione, chiudila con <span class="ui">Ho capito, iniziamo</span>.</p><a class="btn primary small" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener">Apri Rotte ↗</a></div></li>
+        <li><div><h3>Prepara il primo viaggio</h3><p>In <span class="ui">Da A a B</span> scrivi la partenza e l'arrivo, oppure tocca la mappa. Scegli lo stile, il budget e le date, poi premi <span class="ui">Trova il percorso →</span>.</p><p>Per provare subito: <b>Torino → Bangkok</b>, il più economico, date flessibili. È lo stesso viaggio del video qui sopra.</p></div></li>
         <li><div><h3>Dai il permesso a Claude</h3><p>La prima volta Claude ti chiede se Rotte può usarlo per preparare l'itinerario: accetta. È il tuo account Claude a fare il lavoro, per questo l'app è gratis.</p></div></li>
-        <li><div><h3>Confronta le proposte</h3><p>Ricevi tre opzioni con tutte le tratte, i tempi e i costi. Con <span class="ui">Vedi le proposte sulla mappa</span> guardi il percorso; ogni tratta ha il link per controllare il prezzo e prenotare.</p></div></li>
-        <li><div><h3>Il resto da scoprire</h3><p><span class="ui">🧭 Esplora a tappe</span> se non sai ancora dove finire, <span class="ui">✨ Cosa fare</span> per le esperienze in ogni meta, <span class="ui">⤓ Esporta</span> per stampare il viaggio o metterlo nel calendario.</p></div></li>
+        <li><div><h3>Confronta le proposte</h3><p>Ricevi tre opzioni con tutte le tratte, i tempi e i costi. Guarda il percorso sulla mappa; ogni tratta ha il link per controllare il prezzo e prenotare.</p></div></li>
+        <li><div><h3>Il resto da scoprire</h3><p><span class="ui">Esplora a tappe</span> se non sai ancora dove finire, <span class="ui">Cosa fare</span> per le esperienze in ogni meta, <span class="ui">Cosa portare</span> per lo zaino, <span class="ui">Ritorno +</span> per il viaggio di rientro, <span class="ui">Salva</span> per ritrovarlo in <span class="ui">Viaggi</span>, <span class="ui">Esporta</span> per stamparlo o metterlo nel calendario.</p></div></li>
       </ol>
       <p class="tip">Sul telefono: apri Rotte nel browser, poi “Aggiungi a schermata Home” per ritrovarla come un'app.</p>
     </div>
   </section>
 
-  <section id="feedback">
+  <section class="band alt" id="feedback">
     <div class="wrap">
-      <div class="fb">
+      <div class="split dash">
         <div>
-          <h2 class="sh">Dimmi com'è andata</h2>
+          <h2 class="sh" style="font-size:clamp(32px,3.6vw,46px)">Dimmi com'è andata.</h2>
           <p>Rotte è appena nata e la sto migliorando con chi la prova. Dopo averla usata, rispondi a un questionario di 2 minuti: anonimo, e le critiche sono le più utili.</p>
         </div>
         <div><a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSeKiaJAYPn3UwVmbqerRkLhc8Sj-ujhgxQUT3BJXHFPHig8dw/viewform" target="_blank" rel="noopener">Rispondi al questionario ↗</a></div>
       </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="band">
+      <div class="split" style="margin-top:22px;background:var(--night)">
         <div>
-          <h2 class="sh">Perché serve un account Claude</h2>
+          <h2 class="sh" style="font-size:clamp(32px,3.6vw,46px)">Perché serve un account Claude.</h2>
           <p>Rotte è costruita su Claude, l'assistente di Anthropic. Gli itinerari li prepara il <b>tuo</b> Claude, con il tuo account: per questo l'app è gratis e non chiede iscrizioni.</p>
           <ul>
             <li>Va bene anche l'account Claude gratuito.</li>
             <li>Per ora si entra su invito: chiedilo ad Alessio con l'email del tuo account Claude.</li>
             <li>Alla prima richiesta Claude ti chiede il permesso.</li>
-            <li>I tuoi viaggi restano salvati solo nel tuo browser.</li>
+            <li>I viaggi che salvi restano nel tuo browser; per crearli Rotte usa il tuo account Claude.</li>
           </ul>
         </div>
         <div><a class="btn open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte in Claude</span> <span aria-hidden="true">↗</span></a></div>
@@ -302,23 +334,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
     </div>
   </section>
 
-  <section id="faq">
+  <section class="band" id="faq">
+    <svg class="contours" data-seed="53" aria-hidden="true"></svg>
     <div class="wrap">
-      <h2 class="sh">Domande frequenti</h2>
+      <p class="kicker">Domande frequenti</p>
+      <h2 class="sh" style="margin-bottom:40px">Prima di partire.</h2>
       <details><summary>È gratis?</summary><p>Sì. Rotte non costa nulla. Se prenoti da alcuni link presenti nell'app, Rotte può ricevere una piccola commissione dal sito di prenotazione, senza nessun costo aggiuntivo per te.</p></details>
       <details><summary>I prezzi sono quelli veri?</summary><p>Sono stime basate sulle tariffe tipiche del periodo. Prima di prenotare controlla sempre il prezzo aggiornato sul sito collegato a ogni tratta.</p></details>
       <details><summary>Devo installare qualcosa?</summary><p>No. Si apre nel browser o nell'app Claude. Sul telefono puoi aggiungerla alla schermata Home per ritrovarla come un'app.</p></details>
       <details><summary>Le informazioni sui visti sono affidabili?</summary><p>Sono indicazioni di massima. Prima di partire verifica sempre su viaggiaresicuri.it e sul sito dell'ambasciata del paese di destinazione.</p></details>
       <details><summary>Questo sito usa cookie?</summary><p>Solo se li accetti. Con il tuo consenso carichiamo uno strumento di Travelpayouts che misura i clic sui link di viaggio e riconosce le prenotazioni fatte tramite i link di affiliazione. Se rifiuti, il sito funziona lo stesso e non viene caricato nulla. Puoi cambiare scelta quando vuoi: <button class="linkbtn" type="button" id="cookie-reset">rivedi le preferenze sui cookie</button>. Tutti i dettagli nella pagina <a href="privacy.html">Privacy e cookie</a>.</p></details>
-      <details><summary>Chi vede i miei viaggi?</summary><p>Nessuno. I viaggi che crei si salvano nel tuo browser. Gli itinerari li genera il tuo account Claude, secondo le sue condizioni d'uso.</p></details>
+      <details><summary>Chi vede i miei viaggi?</summary><p>I viaggi che salvi restano nel tuo browser: Alessio non li vede. Per preparare gli itinerari, però, Rotte usa il tuo account Claude: partenza, arrivo, date e preferenze vengono inviate a Claude e trattate da Anthropic secondo la sua <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">informativa privacy</a>.</p></details>
       <p class="disclose">Trasparenza: alcuni link di prenotazione presenti in Rotte sono link di affiliazione. Se prenoti tramite questi link, Rotte riceve una commissione dal sito partner; il prezzo per te non cambia. Prezzi, orari e requisiti di ingresso sono indicativi. Rotte è un progetto indipendente e non è affiliato ad Anthropic.</p>
+    </div>
+  </section>
+
+  <section class="final alt band" id="invito">
+    <svg class="contours" data-seed="67" aria-hidden="true"></svg>
+    <div class="wrap">
+      <h2>La prossima rotta<br>è la tua.</h2>
+      <p>Per ora si entra su invito: mandami l'email del tuo account Claude e ti aggiungo.</p>
+      <a class="btn primary open-rotte" href="https://claude.ai/artifact/BmexMViHBVYipMnex5gRYg" target="_blank" rel="noopener"><span class="lbl">Apri Rotte</span> <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <span><b translate="no">Rotte.</b> da qui a ovunque, porta a porta · © 2026</span>
+    <span><b translate="no">Rotte<span>.</span></b> da qui a ovunque, porta a porta · © 2026</span>
     <span><a href="privacy.html">Privacy e cookie</a> · <a href="termini.html">Termini d'uso</a> · <a href="mailto:alessiorandazzo259@gmail.com">alessiorandazzo259@gmail.com</a></span>
   </div>
 </footer>
@@ -343,74 +386,344 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
   <p>Usiamo un servizio di Travelpayouts che, con il tuo consenso, salva cookie per misurare i clic sui link di viaggio e riconoscere le prenotazioni affiliate. Senza consenso non viene caricato nulla. <a href="privacy.html">Privacy e cookie</a></p>
   <div class="row"><button class="ok" type="button" id="cookie-yes">Accetta</button><button type="button" id="cookie-no">Rifiuta</button></div>
 </div>
+
 <script>
+// Lingua: italiano o inglese. ?lang=en|it nel link, poi la scelta salvata, poi la lingua del browser.
+(function(){
+  var KEY="rotte-lang", q=(location.search.match(/[?&]lang=(it|en)\b/)||[])[1], saved=null;
+  try { saved=localStorage.getItem(KEY); } catch(e){}
+  if (q) { saved=q; try { localStorage.setItem(KEY,q); } catch(e){} }
+  var LANG = saved==="it"||saved==="en" ? saved : (/^it\b/i.test(navigator.language||"it") ? "it" : "en");
+  window.LANG=LANG;
+  var TR = {
+    "Come funziona":"How it works", "Cosa fa":"Features", "Guida":"Guide", "Domande":"FAQ",
+    "Chiedi l'invito":"Ask for an invite", "Apri Rotte":"Open Rotte", "Apri Rotte ↗":"Open Rotte ↗", "Apri Rotte in Claude":"Open Rotte in Claude",
+    "Da qui a ovunque, porta a porta":"From here to anywhere, door to door",
+    "Gira il mondo.":"Spin the globe.", "Scegli la tua":"Choose your", "rotta.":"route.",
+    "Scegli due punti sul mappamondo: Rotte ti mostra ogni tratta per arrivarci, dal volo al traghetto, fino al tuk-tuk dell'ultimo chilometro.":"Pick two points on the globe: Rotte shows you every leg of the way, from the flight to the ferry, down to the tuk-tuk for the last mile.",
+    "Guida in 2 minuti":"2-minute guide",
+    "Gratis, su invito. Funziona dentro Claude: serve un account Claude (va bene quello gratuito) e un invito di Alessio.":"Free, by invitation. It runs inside Claude: you need a Claude account (the free one is fine) and an invite from Alessio.",
+    "Prova una rotta: il mappamondo ti segue":"Try a route: the globe follows you",
+    "Esempio con prezzi indicativi: nell'app Rotte calcola le tue date, il tuo budget e dove prenotare ogni tratta.":"Example with indicative prices: in the app, Rotte works out your dates, your budget and where to book each leg.",
+    "Trascina per far girare il mondo":"Drag to spin the world",
+    "Tre tappe, e sei già in viaggio.":"Three steps, and you're on your way.",
+    "Scegli due punti":"Pick two points",
+    "Una città, un villaggio, un punto toccato sulla mappa. Aggiungi le soste che vuoi lungo la strada.":"A city, a village, any spot you tap on the map. Add the stops you want along the way.",
+    "Decidi come":"Decide how",
+    "Il più veloce, il più economico o il più avventuroso. Anche in auto, camper o bici, in tenda o in ostello. Poi date e budget.":"The fastest, the cheapest or the most adventurous. By car, camper van or bike too, sleeping in a tent or a hostel. Then dates and budget.",
+    "Parti":"Go",
+    "Tre proposte con ogni tratta, orari, costi e dove prenotare. Poi il ritorno, le cose da fare e cosa mettere nello zaino.":"Three options with every leg, times, costs and where to book. Then the way back, things to do and what to pack.",
+    "Guarda il video":"Play the video", "Metti in pausa":"Pause",
+    "Guardala in azione":"See it in action",
+    "Da Torino a Bangkok in mezzo minuto.":"From Turin to Bangkok in half a minute.",
+    "Partenza e arrivo, stile di viaggio, l'itinerario con ogni tratta e la lista di cosa portare. Dati di esempio.":"Start and destination, travel style, the itinerary with every leg and the packing list. Sample data.",
+    "Scegli la rotta":"Pick the route", "Due punti qualsiasi nel mondo.":"Any two points in the world.",
+    "Ogni tratta":"Every leg", "Mezzo, durata, costo e dove prenotare.":"Transport, duration, cost and where to book.",
+    "Esplora a tappe":"Explore stop by stop", "Scegli dove andare dopo, col budget.":"Choose where to go next, within budget.",
+    "Cosa portare":"What to pack", "La lista per tutto il viaggio.":"The list for the whole trip.",
+    "Tutto quello che serve per partire.":"Everything you need to set off.",
+    "Pensata per chi viaggia spendendo il giusto e vuole sapere esattamente come arrivare, non solo dove. In italiano e in inglese.":"Made for people who travel on a sensible budget and want to know exactly how to get there, not just where. In English and Italian.",
+    "Da A a B, porta a porta":"A to B, door to door",
+    "Ogni spostamento, dal taxi per l'aeroporto al traghetto, con prezzi indicativi e link per prenotare.":"Every transfer, from the airport taxi to the ferry, with indicative prices and booking links.",
+    "Non sai ancora dove finire? Parti, scegli la tappa dopo tra quelle che il budget ti permette, e così via.":"Not sure where to end up yet? Set off, pick the next stop among those your budget allows, and so on.",
+    "Cosa fare":"Things to do",
+    "Per ogni meta, le cose da non perdere e quelle fuori dai soliti giri: luoghi strani, cibo locale, tradizioni.":"For each destination, the must-sees and the off-the-beaten-path: odd places, local food, traditions.",
+    "Lo zaino per tutto il viaggio, secondo clima, mezzi e alloggi, con il link per quello che ti manca.":"Your backpack for the whole trip, based on climate, transport and where you sleep, with a link for anything you're missing.",
+    "Visti e documenti":"Visas and documents",
+    "Per ogni paese, anche negli scali, cosa serve per entrare con il tuo passaporto.":"For every country, layovers included, what you need to enter with your passport.",
+    "I miei viaggi":"My trips",
+    "Salva, riapri e modifica le tratte a mano. Chiedi anche il ritorno, poi esporta il viaggio da stampare o in Google Calendar.":"Save, reopen and edit legs by hand. Ask for the way back too, then export the trip to print or to Google Calendar.",
+    "Quando costa meno":"When it's cheapest",
+    "Accanto all'itinerario, i prezzi stimati per settimana o per mese: scegli il periodo più conveniente e rifai il viaggio su quelle date.":"Next to the itinerary, estimated prices by week or by month: pick the cheapest period and redo the trip for those dates.",
+    "A modo tuo":"Your way",
+    "Con i mezzi pubblici o con la tua auto, il camper, la moto o la bici. Dormi in tenda, in ostello, in couchsurfing o in hotel. Aggiungi soste e notti lungo la strada.":"By public transport or with your own car, camper van, motorbike or bike. Sleep in a tent, a hostel, on a couch or in a hotel. Add stops and nights along the way.",
+    "Il tuo programma":"Your plan",
+    "Metti da parte le esperienze che ti piacciono e aggiungi le tue: il programma del viaggio, da esportare e portare con te.":"Keep the experiences you like and add your own: the trip plan, ready to export and take with you.",
+    "Guida per iniziare":"Getting started",
+    "Pronti a partire in due minuti.":"Ready to go in two minutes.",
+    "La prima volta servono un paio di minuti, più il tempo dell'invito. Segui questi passaggi e al primo tentativo hai il tuo itinerario.":"The first time takes a couple of minutes, plus the time for your invite. Follow these steps and you'll have your itinerary on the first try.",
+    "Crea un account Claude (gratis)":"Create a Claude account (free)",
+    "Rotte funziona dentro Claude. Se non hai ancora un account, crealo su":"Rotte runs inside Claude. If you don't have an account yet, create one at",
+    "con la tua email o con Google: va bene quello gratuito. Se ce l'hai già, salta questo passaggio.":"with your email or Google: the free plan is fine. If you already have one, skip this step.",
+    "Per ora Rotte è su invito. Manda ad Alessio":"For now Rotte is invite-only. Send Alessio",
+    "l'email con cui accedi a Claude":"the email you use to sign in to Claude",
+    ": ti aggiunge lui e ti arriva una notifica. Senza invito la pagina si apre, ma non crea itinerari.":": he'll add you and you'll get a notification. Without an invite the page opens, but it won't create itineraries.",
+    "Chiedi l'invito ↗":"Ask for an invite ↗",
+    "Oppure scrivi ad alessiorandazzo259@gmail.com.":"Or write to alessiorandazzo259@gmail.com.",
+    "Dopo l'invito, apri Rotte con lo stesso account Claude. Alla prima apertura trovi una breve presentazione, chiudila con":"Once invited, open Rotte with the same Claude account. The first time you'll see a short introduction; close it with",
+    "Ho capito, iniziamo":"Got it, let's start",
+    "Prepara il primo viaggio":"Plan your first trip",
+    "In":"In", "Da A a B":"A to B",
+    "scrivi la partenza e l'arrivo, oppure tocca la mappa. Scegli lo stile, il budget e le date, poi premi":"type where you start and where you're going, or tap the map. Choose the style, budget and dates, then press",
+    "Trova il percorso →":"Find the route →",
+    "Per provare subito:":"To try it right away:",
+    "Torino → Bangkok":"Turin → Bangkok",
+    ", il più economico, date flessibili. È lo stesso viaggio del video qui sopra.":", cheapest, flexible dates. It's the same trip as in the video above.",
+    "Dai il permesso a Claude":"Give Claude permission",
+    "La prima volta Claude ti chiede se Rotte può usarlo per preparare l'itinerario: accetta. È il tuo account Claude a fare il lavoro, per questo l'app è gratis.":"The first time, Claude asks whether Rotte may use it to prepare the itinerary: accept. Your Claude account does the work, which is why the app is free.",
+    "Confronta le proposte":"Compare the options",
+    "Ricevi tre opzioni con tutte le tratte, i tempi e i costi. Guarda il percorso sulla mappa; ogni tratta ha il link per controllare il prezzo e prenotare.":"You get three options with every leg, times and costs. See the route on the map; each leg has a link to check the price and book.",
+    "Il resto da scoprire":"The rest is yours to discover",
+    "se non sai ancora dove finire,":"if you don't know where to end up yet,",
+    "per le esperienze in ogni meta,":"for experiences at each destination,",
+    "per lo zaino,":"for your backpack,",
+    "Ritorno +":"Return +", "per il viaggio di rientro,":"for the way back,",
+    "Salva":"Save", "per ritrovarlo in":"to find it again in", "Viaggi":"Trips",
+    "Esporta":"Export", "per stamparlo o metterlo nel calendario.":"to print it or add it to your calendar.",
+    "Sul telefono: apri Rotte nel browser, poi “Aggiungi a schermata Home” per ritrovarla come un'app.":"On your phone: open Rotte in the browser, then “Add to Home Screen” to keep it like an app.",
+    "Dimmi com'è andata.":"Tell me how it went.",
+    "Rotte è appena nata e la sto migliorando con chi la prova. Dopo averla usata, rispondi a un questionario di 2 minuti: anonimo, e le critiche sono le più utili.":"Rotte is brand new and I'm improving it with the people who try it. After using it, answer a 2-minute questionnaire (in Italian): it's anonymous, and criticism is the most useful part.",
+    "Rispondi al questionario ↗":"Answer the questionnaire ↗",
+    "Perché serve un account Claude.":"Why you need a Claude account.",
+    "Rotte è costruita su Claude, l'assistente di Anthropic. Gli itinerari li prepara il":"Rotte is built on Claude, Anthropic's assistant. Itineraries are prepared by",
+    "tuo":"your",
+    "Claude, con il tuo account: per questo l'app è gratis e non chiede iscrizioni.":"Claude, with your account: that's why the app is free and needs no sign-up.",
+    "Va bene anche l'account Claude gratuito.":"A free Claude account works too.",
+    "Per ora si entra su invito: chiedilo ad Alessio con l'email del tuo account Claude.":"For now it's invite-only: ask Alessio, giving the email of your Claude account.",
+    "Alla prima richiesta Claude ti chiede il permesso.":"Claude asks for your permission on the first request.",
+    "I viaggi che salvi restano nel tuo browser; per crearli Rotte usa il tuo account Claude.":"The trips you save stay in your browser; to create them Rotte uses your Claude account.",
+    "Domande frequenti":"Frequently asked questions", "Prima di partire.":"Before you go.",
+    "È gratis?":"Is it free?",
+    "Sì. Rotte non costa nulla. Se prenoti da alcuni link presenti nell'app, Rotte può ricevere una piccola commissione dal sito di prenotazione, senza nessun costo aggiuntivo per te.":"Yes. Rotte costs nothing. If you book through some of the links in the app, Rotte may receive a small commission from the booking site, at no extra cost to you.",
+    "I prezzi sono quelli veri?":"Are the prices real?",
+    "Sono stime basate sulle tariffe tipiche del periodo. Prima di prenotare controlla sempre il prezzo aggiornato sul sito collegato a ogni tratta.":"They're estimates based on typical fares for the period. Before booking, always check the current price on the site linked to each leg.",
+    "Devo installare qualcosa?":"Do I need to install anything?",
+    "No. Si apre nel browser o nell'app Claude. Sul telefono puoi aggiungerla alla schermata Home per ritrovarla come un'app.":"No. It opens in the browser or in the Claude app. On your phone you can add it to the Home Screen to keep it like an app.",
+    "Le informazioni sui visti sono affidabili?":"Is the visa information reliable?",
+    "Sono indicazioni di massima. Prima di partire verifica sempre su viaggiaresicuri.it e sul sito dell'ambasciata del paese di destinazione.":"It's general guidance. Before leaving, always check your government's travel advice and the embassy website of the destination country.",
+    "Questo sito usa cookie?":"Does this site use cookies?",
+    "Solo se li accetti. Con il tuo consenso carichiamo uno strumento di Travelpayouts che misura i clic sui link di viaggio e riconosce le prenotazioni fatte tramite i link di affiliazione. Se rifiuti, il sito funziona lo stesso e non viene caricato nulla. Puoi cambiare scelta quando vuoi:":"Only if you accept them. With your consent we load a Travelpayouts tool that measures clicks on travel links and recognises bookings made through affiliate links. If you decline, the site works just the same and nothing is loaded. You can change your choice at any time:",
+    "rivedi le preferenze sui cookie":"review your cookie preferences",
+    ". Tutti i dettagli nella pagina":". All the details are on the page",
+    "Privacy e cookie":"Privacy and cookies (in Italian)",
+    "Chi vede i miei viaggi?":"Who sees my trips?",
+    "I viaggi che salvi restano nel tuo browser: Alessio non li vede. Per preparare gli itinerari, però, Rotte usa il tuo account Claude: partenza, arrivo, date e preferenze vengono inviate a Claude e trattate da Anthropic secondo la sua":"The trips you save stay in your browser: Alessio can't see them. To prepare itineraries, though, Rotte uses your Claude account: start, destination, dates and preferences are sent to Claude and handled by Anthropic under its",
+    "informativa privacy":"privacy policy",
+    "Trasparenza: alcuni link di prenotazione presenti in Rotte sono link di affiliazione. Se prenoti tramite questi link, Rotte riceve una commissione dal sito partner; il prezzo per te non cambia. Prezzi, orari e requisiti di ingresso sono indicativi. Rotte è un progetto indipendente e non è affiliato ad Anthropic.":"Transparency: some booking links in Rotte are affiliate links. If you book through them, Rotte receives a commission from the partner site; your price doesn't change. Prices, times and entry requirements are indicative. Rotte is an independent project and is not affiliated with Anthropic.",
+    "La prossima rotta":"Your next route", "è la tua.":"starts here.",
+    "Per ora si entra su invito: mandami l'email del tuo account Claude e ti aggiungo.":"For now it's invite-only: send me the email of your Claude account and I'll add you.",
+    "da qui a ovunque, porta a porta · © 2026":"from here to anywhere, door to door · © 2026",
+    "Termini d'uso":"Terms of use (in Italian)",
+    "Per ora Rotte è su invito: funziona con il tuo account Claude, dopo che Alessio ti ha aggiunto.":"For now Rotte is invite-only: it works with your Claude account once Alessio has added you.",
+    "Se non hai un account Claude, crealo gratis su":"If you don't have a Claude account, create one for free at",
+    "Manda ad Alessio":"Send Alessio",
+    "Quando ti ha invitato, torna qui e apri Rotte con quell'account.":"Once you're invited, come back here and open Rotte with that account.",
+    "Scrivi ad Alessio ↗":"Email Alessio ↗", "Copia indirizzo":"Copy address", "Copiato ✓":"Copied ✓",
+    "Hai già l'invito?":"Already invited?",
+    "Usiamo un servizio di Travelpayouts che, con il tuo consenso, salva cookie per misurare i clic sui link di viaggio e riconoscere le prenotazioni affiliate. Senza consenso non viene caricato nulla.":"We use a Travelpayouts service that, with your consent, stores cookies to measure clicks on travel links and recognise affiliate bookings. Without consent nothing is loaded.",
+    "Accetta":"Accept", "Rifiuta":"Decline",
+    // attributi
+    "Rotte di esempio":"Sample routes",
+    "Mappamondo con le rotte di esempio. Trascinalo per farlo girare, oppure scegli una rotta dall'elenco.":"Globe with the sample routes. Drag it to spin it, or pick a route from the list.",
+    "Video: Rotte prepara un viaggio da Torino a Bangkok e la lista di cosa portare":"Video: Rotte plans a trip from Turin to Bangkok and the packing list",
+    "Schermata: Torino e Bangkok scelti sul mappamondo":"Screenshot: Turin and Bangkok picked on the globe",
+    "Schermata: itinerario da Torino a Bangkok con bus, aereo, treno e tuk-tuk, costi e durate":"Screenshot: itinerary from Turin to Bangkok by bus, plane, train and tuk-tuk, with costs and durations",
+    "Schermata: proposte di tappe da Bangkok verso Chiang Mai, Hanoi, Siem Reap e altre mete":"Screenshot: suggested next stops from Bangkok to Chiang Mai, Hanoi, Siem Reap and more",
+    "Schermata: lista di cosa portare con spunte e link ai negozi":"Screenshot: packing list with checkboxes and shop links",
+    "Chiudi":"Close", "Preferenze sui cookie":"Cookie preferences",
+    // rotte del mappamondo
+    "Torino":"Turin", "Città del Capo":"Cape Town", "Lisbona":"Lisbon", "Barcellona":"Barcelona", "Durazzo":"Durrës",
+    "Aeroporto → centro":"Airport → city centre", "Fino all'ostello":"To the hostel", "Fino alla medina":"To the medina"
+  };
+  var WORDS = [[/Città del Capo/g,"Cape Town"],[/Torino/g,"Turin"],[/Lisbona/g,"Lisbon"],[/Barcellona/g,"Barcelona"],[/Durazzo/g,"Durrës"],
+    [/Traghetto notturno/g,"Overnight ferry"],[/Taxi collettivo/g,"Shared taxi"],[/\bVolo\b/g,"Flight"],[/\bTreno\b/g,"Train"],[/\bscalo\b/g,"layover"],
+    [/circa 1 giorno/g,"about 1 day"],[/circa (\d+) ore/g,"about $1 hours"],[/da ~(\d+) €/g,"from ~€$1"],[/([\d–]+) €/g,"€$1"]];
+  window.T = function(s){ if (LANG!=="en" || s==null) return s; if (TR[s]) return TR[s]; var t=String(s); WORDS.forEach(function(w){ t=t.replace(w[0],w[1]); }); return t; };
+  document.documentElement.lang = LANG;
+  var btn=document.getElementById("lang");
+  if (btn){ btn.textContent = LANG==="en" ? "IT" : "EN"; btn.setAttribute("aria-label", LANG==="en" ? "Leggi in italiano" : "Read in English"); btn.lang = LANG==="en" ? "it" : "en";
+    btn.onclick=function(){ var v = LANG==="en" ? "it" : "en"; try { localStorage.setItem(KEY,v); } catch(e){} var u=new URL(location.href); u.searchParams.set("lang", v); location.replace(u.toString()); }; }
+  if (LANG!=="en") return;
+  document.title = "Rotte — from here to anywhere, door to door";
+  var md=document.querySelector('meta[name="description"]'); if (md) md.content="Rotte plans complete door-to-door trips: flights, trains, buses, ferries and local transport. Pick two points in the world, how you want to travel and your budget. Free.";
+  var w=document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {acceptNode:function(n){ return /^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName) ? 2 : 1; }}), n, list=[];
+  while ((n=w.nextNode())) list.push(n);
+  list.forEach(function(n){ var v=n.nodeValue, t=v.trim(); if (t && TR[t]) n.nodeValue = v.replace(t, TR[t]); });
+  [].slice.call(document.querySelectorAll("[alt],[aria-label],[title]")).forEach(function(e){ ["alt","aria-label","title"].forEach(function(a){ var v=e.getAttribute(a); if (v && TR[v.trim()]) e.setAttribute(a, TR[v.trim()]); }); });
+  // schermate, video e email in inglese
+  [].slice.call(document.querySelectorAll('img[src^="media/rotte-"]')).forEach(function(i){ i.src=i.getAttribute("src").replace(/\.webp$/,"-en.webp"); });
+  var vid=document.getElementById("demo-video");
+  if (vid){ vid.poster="media/demo-poster-en.webp"; var so=vid.querySelector("source"); if (so) so.src="media/rotte-demo-en.webm"; vid.load(); }
+  [].slice.call(document.querySelectorAll('a[href^="mailto:"][href*="subject="]')).forEach(function(a){
+    a.href=a.getAttribute("href").replace("subject=Invito%20a%20Rotte","subject=Rotte%20invite").replace(/body=[^&]*/,"body=Hi%20Alessio!%20My%20Claude%20email%20is%3A%20"); });
+})();
+</script>
+<script>
+// Cookie: Travelpayouts solo con il consenso.
 (function(){
   var KEY="rotte-cookie";
-  function loadDrive(){
-    if (document.getElementById("tp-drive")) return;
-    var script = document.createElement("script");
-    script.id = "tp-drive";
-    script.async = 1;
-    script.setAttribute("data-cmp-ab","2");
-    script.src = 'https://tpembars.com/NTk2OTAy.js?t=596902';
-    document.head.appendChild(script);
-  }
+  function loadDrive(){ if (document.getElementById("tp-drive")) return; var s=document.createElement("script"); s.id="tp-drive"; s.async=1; s.setAttribute("data-cmp-ab","2"); s.src='https://tpembars.com/NTk2OTAy.js?t=596902'; document.head.appendChild(s); }
   function get(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
   function set(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
-  var box=document.getElementById("cookie");
-  var choice=get();
-  if (choice==="yes") loadDrive();
-  else if (choice!=="no") box.hidden=false;
+  var box=document.getElementById("cookie"), choice=get();
+  if (choice==="yes") loadDrive(); else if (choice!=="no") box.hidden=false;
   document.getElementById("cookie-yes").onclick=function(){ set("yes"); box.hidden=true; loadDrive(); };
   document.getElementById("cookie-no").onclick=function(){ set("no"); box.hidden=true; };
   document.getElementById("cookie-reset").onclick=function(){ try{ localStorage.removeItem(KEY); }catch(e){} location.reload(); };
 })();
-</script>
-<script>
 // Prima volta: i pulsanti "Apri Rotte" diventano "Chiedi l'invito" e aprono la finestra dell'invito.
-// Dopo il primo uso (richiesta inviata o "ho già l'invito") tornano "Apri Rotte" e aprono l'app.
 (function(){
   var KEY="rotte-invito";
   function seen(){ try { return localStorage.getItem(KEY)==="1"; } catch(e){ return false; } }
   function mark(){ try { localStorage.setItem(KEY,"1"); } catch(e){} paint(); }
   var btns=[].slice.call(document.querySelectorAll(".open-rotte"));
   btns.forEach(function(b){ b.dataset.lbl=b.querySelector(".lbl").textContent; });
-  function paint(){ var s=seen(); btns.forEach(function(b){ b.querySelector(".lbl").textContent = s ? b.dataset.lbl : "Chiedi l'invito"; }); }
+  function paint(){ var s=seen(); btns.forEach(function(b){ b.querySelector(".lbl").textContent = s ? b.dataset.lbl : T("Chiedi l'invito"); }); }
   var dlg=document.getElementById("inv");
-  btns.forEach(function(b){ b.addEventListener("click", function(e){
-    if (seen()) return;
-    e.preventDefault();
-    if (dlg.showModal) dlg.showModal(); else location.hash="guida";
-  }); });
+  btns.forEach(function(b){ b.addEventListener("click", function(e){ if (seen()) return; e.preventDefault(); if (dlg.showModal) dlg.showModal(); else location.hash="guida"; }); });
   document.getElementById("inv-x").onclick=function(){ dlg.close(); };
   dlg.addEventListener("click", function(e){ if (e.target===dlg) dlg.close(); });
-  [].slice.call(document.querySelectorAll('a[href^="mailto:alessiorandazzo259@gmail.com?subject=Invito"]')).forEach(function(m){ m.addEventListener("click", function(){ mark(); }); });
+  [].slice.call(document.querySelectorAll('a[href^="mailto:"][href*="subject="]')).forEach(function(m){ m.addEventListener("click", function(){ mark(); }); });
   document.getElementById("inv-open").addEventListener("click", function(){ mark(); dlg.close(); });
   document.getElementById("inv-copy").onclick=function(){
     var t=this, addr="alessiorandazzo259@gmail.com";
-    function done(){ t.textContent="Copiato ✓"; mark(); }
-    if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, function(){ prompt("Copia l'indirizzo:", addr); mark(); });
-    else { prompt("Copia l'indirizzo:", addr); mark(); }
+    function done(){ t.textContent=T("Copiato ✓"); mark(); }
+    if (navigator.clipboard) navigator.clipboard.writeText(addr).then(done, function(){ t.textContent=addr; mark(); });
+    else { t.textContent=addr; mark(); }
   };
   paint();
 })();
-</script>
-<script>
-// Video della demo: parte solo quando è visibile e se non è chiesto di ridurre le animazioni.
+// Video della demo: parte quando è visibile, se non è chiesto di ridurre le animazioni.
 (function(){
   var v=document.getElementById("demo-video"), b=document.getElementById("demo-ctl"); if(!v||!b) return;
   var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches, user=false;
-  function label(){ b.textContent = v.paused ? "Guarda il video" : "Metti in pausa"; }
+  function label(){ b.textContent = T(v.paused ? "Guarda il video" : "Metti in pausa"); }
   b.onclick=function(){ user=true; if(v.paused) v.play().catch(function(){}); else v.pause(); };
   v.addEventListener("play",label); v.addEventListener("pause",label); label();
   if (reduce || !("IntersectionObserver" in window)) return;
   new IntersectionObserver(function(es){ es.forEach(function(e){ if(user) return; if(e.isIntersecting) v.play().catch(function(){}); else v.pause(); }); },{threshold:.4}).observe(v);
 })();
-// Statistiche senza cookie (Cloudflare Web Analytics): si attivano inserendo il token qui sotto.
+// Statistiche senza cookie (Cloudflare Web Analytics).
 (function(){
   var TOKEN="d6de6e4285b344e09e608938b044bd11"; if(!TOKEN) return;
+  if (!/(^|\.)alessio259\.github\.io$/.test(location.hostname)) return;
   var s=document.createElement("script"); s.defer=true; s.src="https://static.cloudflareinsights.com/beacon.min.js";
   s.setAttribute("data-cf-beacon", JSON.stringify({token:TOKEN})); document.head.appendChild(s);
+})();
+// Curve di livello negli sfondi.
+(function(){
+  [].slice.call(document.querySelectorAll("svg.contours")).forEach(function(el){
+    var seed=+el.getAttribute("data-seed")||7, w=1400, h=700, s=seed, out="";
+    function rnd(){ s=(s*16807)%2147483647; return s/2147483647; }
+    el.setAttribute("viewBox","0 0 "+w+" "+h); el.setAttribute("preserveAspectRatio","xMidYMid slice");
+    for (var b=0;b<4;b++){ var cx=rnd()*w, cy=rnd()*h, R=120+rnd()*260;
+      for (var k=1;k<=7;k++){ var rr=R*k/7, d="";
+        for (var a=0;a<=64;a++){ var t=a/64*Math.PI*2, wob=1+.13*Math.sin(t*3+seed+k)+.07*Math.sin(t*5+cx); d+=(a?"L":"M")+(cx+Math.cos(t)*rr*wob).toFixed(1)+","+(cy+Math.sin(t)*rr*.72*wob).toFixed(1); }
+        out+='<path d="'+d+'Z" fill="none" stroke="#2a4458" stroke-width="1"/>'; } }
+    el.innerHTML=out;
+  });
+})();
+</script>
+<script src="media/globo.js"></script>
+<script>
+// Mappamondo interattivo con le rotte di esempio.
+(function(){
+"use strict";
+var G=window.RotteGlobe; if(!G) return;
+var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+var C = {flight:"#f0643c", train:"#5aa7d6", bus:"#b48ad8", ferry:"#3cc1cf", local:"#8cc56a"};
+var ICON = {
+  flight:'<path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>',
+  train:'<path d="M8 3.1V7a4 4 0 0 0 8 0V3.1"/><path d="m9 15-1-1"/><path d="m15 15 1-1"/><path d="M9 19c-2.8 0-5-2.2-5-5v-4a8 8 0 0 1 16 0v4c0 2.8-2.2 5-5 5Z"/><path d="m8 19-2 3"/><path d="m16 22-2-3"/>',
+  bus:'<path d="M8 6v6"/><path d="M15 6v6"/><path d="M2 12h19.6"/><path d="M18 18h3s.5-1.7.8-2.8c.1-.4.2-.8.2-1.2 0-.4-.1-.8-.2-1.2l-1.4-5C20.1 6.8 19.1 6 18 6H4a2 2 0 0 0-2 2v10h3"/><circle cx="7" cy="18" r="2"/><path d="M9 18h5"/><circle cx="16" cy="18" r="2"/>',
+  ferry:'<path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/>',
+  local:'<path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/>'
+};
+var P = { tor:[7.69,45.07], mxp:[8.72,45.63], dxb:[55.36,25.25], bkk:[100.75,13.69], bkkc:[100.50,13.75], ist:[28.74,41.26], cpt:[18.60,-33.97], cptc:[18.42,-33.92],
+  lis:[-9.13,38.77], lisc:[-9.14,38.72], bri:[16.87,41.12], drz:[19.45,41.32], tia:[19.82,41.33], bcn:[2.08,41.30], rak:[-8.0,31.61], rakc:[-7.99,31.63], mad:[-3.56,40.47], eze:[-58.54,-34.82], bue:[-58.38,-34.60] };
+var ROUTES = [
+  {id:"bkk", name:"Bangkok", meta:"circa 17 ore · da ~470 €", legs:[["bus","tor","mxp","Torino → Malpensa","Bus · 2 h","8–15 €"],["flight","mxp","dxb","Malpensa → Dubai","Volo · 6 h",""],["flight","dxb","bkk","Dubai → Bangkok","Volo · 6 h · scalo 3 h","450–610 €"],["train","bkk","bkkc","Aeroporto → centro","Airport Rail Link · 30 min","1–2 €"],["local","bkkc","bkkc","Fino all'ostello","Tuk-tuk · 15 min","3–5 €"]]},
+  {id:"cpt", name:"Città del Capo", meta:"circa 1 giorno · da ~520 €", legs:[["flight","tor","ist","Torino → Istanbul","Volo · 3 h",""],["flight","ist","cpt","Istanbul → Città del Capo","Volo · 11 h · scalo 4 h","480–640 €"],["bus","cpt","cptc","Aeroporto → centro","MyCiTi · 40 min","6–8 €"]]},
+  {id:"lis", name:"Lisbona", meta:"circa 6 ore · da ~95 €", legs:[["train","tor","mxp","Torino → Malpensa","Treno · 2 h 15","15–25 €"],["flight","mxp","lis","Malpensa → Lisbona","Volo · 2 h 40","70–130 €"],["train","lis","lisc","Aeroporto → centro","Metro · 25 min","2 €"]]},
+  {id:"tia", name:"Tirana", meta:"circa 14 ore · da ~60 €", legs:[["train","tor","bri","Torino → Bari","Treno · 9 h","30–60 €"],["ferry","bri","drz","Bari → Durazzo","Traghetto notturno · 9 h","45–80 €"],["bus","drz","tia","Durazzo → Tirana","Bus · 1 h","2 €"]]},
+  {id:"rak", name:"Marrakech", meta:"circa 9 ore · da ~140 €", legs:[["flight","tor","bcn","Torino → Barcellona","Volo · 1 h 30",""],["flight","bcn","rak","Barcellona → Marrakech","Volo · 2 h","110–190 €"],["local","rak","rakc","Fino alla medina","Taxi collettivo · 20 min","3–6 €"]]},
+  {id:"bue", name:"Buenos Aires", meta:"circa 17 ore · da ~780 €", legs:[["flight","tor","mad","Torino → Madrid","Volo · 2 h",""],["flight","mad","eze","Madrid → Buenos Aires","Volo · 12 h 30","720–980 €"],["bus","eze","bue","Aeroporto → centro","Bus · 50 min","4–8 €"]]}
+];
+// stelle
+var sc=document.getElementById("stars");
+function stars(){ var r=sc.getBoundingClientRect(), d=window.devicePixelRatio||1; sc.width=r.width*d; sc.height=r.height*d; var g=sc.getContext("2d"); g.scale(d,d);
+  var s=7; function rnd(){ s=(s*16807)%2147483647; return s/2147483647; }
+  for(var i=0;i<Math.round(r.width*r.height/2600);i++){ g.fillStyle="rgba(243,236,223,"+(.15+rnd()*.55)+")"; g.beginPath(); g.arc(rnd()*r.width, rnd()*r.height, rnd()*1.2+.2, 0, 7); g.fill(); } }
+stars();
+// selezione delle rotte e scheda del viaggio (funzionano anche prima che la mappa sia caricata)
+var chips=document.getElementById("chips"), trip=document.getElementById("trip"), sel=null, spinTo=null;
+chips.innerHTML = ROUTES.map(function(r){ return '<button type="button" data-id="'+r.id+'" aria-pressed="false">'+T("Torino")+' → '+T(r.name)+'</button>'; }).join("");
+[].slice.call(chips.querySelectorAll("button")).forEach(function(b){ b.onclick=function(){ pick(b.dataset.id, true); }; });
+function icon(m){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+ICON[m]+'</svg>'; }
+function pick(id, spin){
+  sel=id; var r=ROUTES.filter(function(x){ return x.id===id; })[0];
+  [].slice.call(chips.querySelectorAll("button")).forEach(function(b){ b.setAttribute("aria-pressed", String(b.dataset.id===id)); });
+  trip.innerHTML = '<div class="top"><h3>'+T("Torino")+' → '+T(r.name)+'</h3><span class="meta">'+T(r.meta)+'</span></div><ul class="legs">'+
+    r.legs.map(function(l){ return '<li><span class="m" style="background:'+C[l[0]]+'">'+icon(l[0])+'</span><span><b>'+T(l[3])+'</b><small>'+T(l[4])+'</small></span><span class="p">'+T(l[5]||"")+'</span></li>'; }).join("")+
+    '</ul><p class="est">'+T("Esempio con prezzi indicativi: nell'app Rotte calcola le tue date, il tuo budget e dove prenotare ogni tratta.")+'</p>';
+  if (spin && spinTo) spinTo(r);
+}
+pick("bkk", false);
+// mappamondo
+fetch("media/mondo-110m.json").then(function(x){ return x.json(); }).then(function(WORLD){
+  var svg=G.select("#globe"), land=G.feature(WORLD, WORLD.objects.countries), borders=G.mesh(WORLD, WORLD.objects.countries, function(a,b){ return a!==b; });
+  var proj=G.geoOrthographic().clipAngle(90).precision(.5), path=G.geoPath(proj), grat=G.geoGraticule10();
+  svg.html('<defs><radialGradient id="sea" cx="38%" cy="32%" r="75%"><stop offset="0%" stop-color="#1b4466"/><stop offset="100%" stop-color="#0a1d2c"/></radialGradient>'+
+    '<radialGradient id="halo"><stop offset="86%" stop-color="#5aa7d6" stop-opacity="0"/><stop offset="92%" stop-color="#5aa7d6" stop-opacity=".22"/><stop offset="100%" stop-color="#5aa7d6" stop-opacity="0"/></radialGradient>'+
+    '<filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>');
+  var gHalo=svg.append("circle").attr("fill","url(#halo)"), gSphere=svg.append("path").attr("fill","url(#sea)"),
+      gGrat=svg.append("path").attr("fill","none").attr("stroke","#24506f").attr("stroke-width",.6).attr("stroke-opacity",.6),
+      gLand=svg.append("path").attr("fill","#cbb48a"), gBorders=svg.append("path").attr("fill","none").attr("stroke","#8a7552").attr("stroke-width",.5),
+      gRoutes=svg.append("g"), gPins=svg.append("g"), gMarks=svg.append("g");
+  var W=600, rot=[-20,-25,0], target=null, lastTouch=0, t0=performance.now(), visibleNow=true;
+  function size(){ var r=document.getElementById("globe").getBoundingClientRect(); W=Math.max(260, r.width); svg.attr("viewBox","0 0 "+W+" "+W); proj.translate([W/2,W/2]).scale(W/2-14); gHalo.attr("cx",W/2).attr("cy",W/2).attr("r",W/2+4); }
+  size(); addEventListener("resize", function(){ size(); stars(); });
+  var dests = ROUTES.map(function(r){ return {id:r.id, name:r.name, c:P[r.legs[r.legs.length-1][2]]}; });
+  var pins=[{id:"home", name:"Torino", c:P.tor, home:true}].concat(dests);
+  function legF(l){ return {type:"LineString", coordinates:[P[l[1]], P[l[2]]]}; }
+  function vis(c){ return G.geoDistance(c, [-rot[0], -rot[1]]) < Math.PI/2 - 0.02; }
+  function draw(now){
+    var t=Math.max(0,(now-t0)/1000);
+    proj.rotate(rot);
+    gSphere.attr("d", path({type:"Sphere"})); gGrat.attr("d", path(grat)); gLand.attr("d", path(land)); gBorders.attr("d", path(borders));
+    var shown = sel ? ROUTES.filter(function(r){ return r.id===sel; }) : ROUTES, legs=[];
+    shown.forEach(function(r){ r.legs.forEach(function(l,i){ if(l[1]!==l[2]) legs.push({l:l, k:r.id+i}); }); });
+    var rs=gRoutes.selectAll("path").data(legs, function(d){ return d.k; });
+    rs.exit().remove();
+    rs.enter().append("path").attr("fill","none").attr("stroke-linecap","round").merge(rs)
+      .attr("d", function(d){ return path(legF(d.l)); }).attr("stroke", function(d){ return C[d.l[0]]; })
+      .attr("stroke-width", 3).attr("filter","url(#glow)")
+      .attr("stroke-dasharray", function(d){ return d.l[0]==="flight" ? "7 6" : null; }).attr("stroke-dashoffset", reduce ? 0 : -t*18);
+    var ps=gPins.selectAll("g").data(pins, function(d){ return d.id; });
+    var pe=ps.enter().append("g").style("cursor","pointer").on("click", function(e,d){ if(!d.home) pick(d.id, true); });
+    pe.append("circle").attr("class","ring"); pe.append("circle").attr("class","dot");
+    pe.append("text").attr("font-family","Manrope, sans-serif").attr("font-weight",700).attr("font-size",12).attr("paint-order","stroke").attr("stroke","#08131c").attr("stroke-width",3);
+    pe.merge(ps).each(function(d){ var g=G.select(this), v=vis(d.c), p=proj(d.c); g.style("display", v?null:"none"); if(!v) return;
+      var on = d.home || d.id===sel, ph=(t*1.2)%1;
+      g.attr("transform","translate("+p[0]+","+p[1]+")");
+      g.select(".dot").attr("r", d.home?5:4.5).attr("fill", d.home?"#f3ecdf":"#f2a541").attr("stroke","#08131c").attr("stroke-width",1.5);
+      g.select(".ring").attr("r", on && !reduce ? 7+4*ph : 0).attr("fill","none").attr("stroke", d.home?"#f3ecdf":"#f2a541").attr("stroke-opacity", 1-ph);
+      g.select("text").attr("x",9).attr("y",4).attr("fill", on?"#f3ecdf":"#b9c3cc").text(T(d.name)).style("display", on ? null : "none"); });
+    var mk = sel ? ROUTES.filter(function(r){ return r.id===sel; }) : [];
+    var mm=gMarks.selectAll("circle").data(mk); mm.exit().remove();
+    mm.enter().append("circle").attr("r",5).attr("filter","url(#glow)").merge(mm).each(function(r){
+      var L=r.legs.filter(function(l){ return l[1]!==l[2]; }), tot=L.length, u = reduce ? .999 : ((t/(2.2*tot))%1), li=Math.min(tot-1, Math.floor(u*tot)), f=u*tot-li;
+      var c=G.geoInterpolate(P[L[li][1]], P[L[li][2]])(f), v=vis(c), p=proj(c);
+      G.select(this).style("display", v?null:"none").attr("cx",p[0]).attr("cy",p[1]).attr("fill", C[L[li][0]]); });
+  }
+  function loop(now){
+    if (target){ var k=Math.min(1,(now-target.start)/1100); rot=target.interp(G.easeCubicInOut(k)); if(k>=1) target=null; }
+    else if (!reduce && now-lastTouch>3500){ rot=[rot[0]+0.06, rot[1], 0]; }
+    if (visibleNow) draw(now);
+    requestAnimationFrame(loop);
+  }
+  if ("IntersectionObserver" in window) new IntersectionObserver(function(es){ visibleNow=es[0].isIntersecting; }).observe(document.getElementById("globe"));
+  spinTo=function(r){
+    var a=P.tor, b=P[r.legs[r.legs.length-1][2]], mid=G.geoInterpolate(a,b)(.5), to=[-mid[0], -Math.max(-60,Math.min(60,mid[1])), 0];
+    if (to[0]-rot[0] > 180) to[0]-=360; if (rot[0]-to[0] > 180) to[0]+=360;
+    target={start:performance.now(), interp:G.interpolate(rot.slice(), to)}; lastTouch=performance.now()+4000;
+  };
+  var sens=function(){ return 75/proj.scale(); };
+  svg.call(G.drag().on("start", function(){ target=null; lastTouch=performance.now(); }).on("drag", function(e){ lastTouch=performance.now(); rot=[rot[0]+e.dx*sens()*1.2, Math.max(-75,Math.min(75,rot[1]-e.dy*sens()*1.2)), 0]; }));
+  document.getElementById("globe").addEventListener("keydown", function(e){ var s=8, k={ArrowLeft:[s,0],ArrowRight:[-s,0],ArrowUp:[0,-s],ArrowDown:[0,s]}[e.key]; if(!k) return; e.preventDefault(); target=null; lastTouch=performance.now(); rot=[rot[0]+k[0], Math.max(-75,Math.min(75,rot[1]+k[1])), 0]; });
+  spinTo(ROUTES[0]);
+  requestAnimationFrame(loop);
+}).catch(function(){ document.querySelector(".globecol").style.display="none"; });
 })();
 </script>
 </body>
