@@ -19,6 +19,8 @@ h2{font-family:Fraunces,Georgia,serif;font-size:22px;margin:32px 0 8px}.upd{colo
 p,li{color:var(--ink2)}ul{padding-left:22px}li{margin:6px 0}
 .box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin:18px 0}
 footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color:var(--mute)}footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
+
+@media (max-width:640px){footer a{display:inline-block;padding:10px 0}header .wrap>a:last-child{display:inline-block;padding:10px 0}}
 </style>
 </head>
 <body>
@@ -46,11 +48,23 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color
 
 <h2>L'app Rotte</h2>
 <ul>
-<li><b>Funziona dentro Claude.</b> Rotte si apre su claude.ai e gli itinerari li genera il tuo account Claude: i dati che inserisci (partenza, arrivo, date, budget, preferenze) vengono trattati da Anthropic secondo la sua <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">informativa privacy</a>.</li>
+<li><b>Dentro Claude.</b> La versione principale di Rotte si apre su claude.ai e gli itinerari li genera il tuo account Claude: i dati che inserisci (partenza, arrivo, date, budget, preferenze) vengono trattati da Anthropic secondo la sua <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">informativa privacy</a>.</li>
 <li><b>I tuoi viaggi restano nel tuo browser.</b> Itinerari, tappe e liste «Cosa portare» si salvano sul tuo dispositivo. Alessio non li vede.</li>
 <li><b>Viaggi condivisi.</b> Se usi la funzione per condividere un viaggio con altre persone, i dati del viaggio vengono salvati nell'archivio di quella pagina su Claude e li vedono le persone con cui lo condividi.</li>
 <li><b>Inviti.</b> Per invitarti, Alessio usa l'email del tuo account Claude, che gli mandi tu. La usa solo per l'invito e per risponderti; puoi chiedere di cancellarla quando vuoi.</li>
 </ul>
+
+<h2>Rotte sul sito, senza account Claude (versione web)</h2>
+<p>Rotte si può usare anche su questo sito, con un codice invito, senza un account Claude. In questo caso:</p>
+<ul>
+<li><b>Chi genera gli itinerari.</b> Le richieste (partenza, arrivo, date, budget, preferenze) passano da un piccolo server di Alessio ospitato da Cloudflare (Cloudflare Workers) e vengono elaborate da Claude di Anthropic tramite la sua API, secondo le <a href="https://www.anthropic.com/legal/commercial-terms" target="_blank" rel="noopener">condizioni commerciali</a> e l'<a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">informativa privacy</a> di Anthropic. Il server non salva il contenuto delle richieste né gli itinerari.</li>
+<li><b>Codice invito.</b> Il server conserva il codice, un nome di riferimento (per esempio «Giulia #12»), quanti crediti hai usato e quando l'hai usato l'ultima volta, per contare gli itinerari gratuiti.</li>
+<li><b>Identificativo del dispositivo.</b> Se entri dal link di un invito, il tuo browser crea un identificativo casuale (non legato a te né al dispositivo vero e proprio). Resta nel browser e il server lo associa al tuo codice per 120 giorni, solo per darti sempre lo stesso codice se riapri il link; poi lo cancella da solo.</li>
+<li><b>Limite per connessione.</b> Per evitare che una sola persona prenda tutti i posti di un invito o riempia la lista d'attesa, il server salva un'impronta pseudonimizzata del tuo indirizzo IP: un codice calcolato con una chiave segreta che resta sul server, da cui senza quella chiave non si risale all'indirizzo. L'indirizzo in chiaro non viene salvato. L'impronta si cancella da sola dopo 30 giorni per i posti degli inviti e dopo 1 giorno per la lista d'attesa.</li>
+<li><b>Lista d'attesa.</b> Se i posti sono finiti e lasci la tua email spuntando la casella del consenso, il server salva l'email, l'invito da cui arrivi, la lingua e la data. Serve solo ad avvisarti quando ci sono nuovi posti: niente pubblicità, niente cessione a terzi. Puoi chiedere di essere cancellato in qualsiasi momento scrivendo all'email qui sopra.</li>
+<li><b>I tuoi viaggi restano nel tuo browser,</b> come nella versione su Claude.</li>
+</ul>
+<div class="box" lang="en"><p style="margin:0"><b>In English — Rotte on this site (web version).</b> With an invite code you can use Rotte without a Claude account. Your trip requests go through Alessio's small server on Cloudflare Workers and are processed by Anthropic's Claude API; the server does not store requests or itineraries. It keeps your invite code, a label, the credits used and the last use date. If you come from an invite link, a random ID created by your browser is linked to your code for 120 days so you always get the same code. To limit spots and waiting-list sign-ups per connection, a pseudonymised fingerprint of your IP address (computed with a secret key kept on the server; the plain address is never stored) is kept for 30 days (invites) or 1 day (waiting list). If spots are gone and you join the waiting list with your consent, your email, invite, language and date are stored only to tell you about new spots; ask to be removed at any time.</p></div>
 
 <h2>Questionario e contatti</h2>
 <ul>
@@ -62,7 +76,7 @@ footer{border-top:1px solid var(--line);padding:24px 0 36px;font-size:14px;color
 <p>Rotte contiene link a siti di prenotazione e di servizi, alcuni di affiliazione. Quando li apri valgono le regole privacy di quei siti.</p>
 
 <h2>Per quanto tempo</h2>
-<p>Le email ricevute per inviti, aggiornamenti o contatti vengono conservate finché servono a quello scopo o finché non chiedi di cancellarle. Le preferenze salvate nel browser restano finché non le cancelli dal browser.</p>
+<p>Le email ricevute per inviti, aggiornamenti, lista d'attesa o contatti vengono conservate finché servono a quello scopo o finché non chiedi di cancellarle. I dati dei codici invito restano finché dura la demo; l'identificativo del dispositivo si cancella da solo dopo 120 giorni; l'impronta dell'indirizzo IP dopo 30 giorni (inviti) o 1 giorno (lista d'attesa). Le preferenze salvate nel browser restano finché non le cancelli dal browser.</p>
 
 <h2>I tuoi diritti</h2>
 <p>Puoi chiedere in qualsiasi momento di accedere ai tuoi dati, correggerli, cancellarli, limitarne l'uso, opporti al trattamento o riceverli in un formato leggibile, scrivendo all'email qui sopra. Puoi anche presentare un reclamo al <a href="https://www.garanteprivacy.it" target="_blank" rel="noopener">Garante per la protezione dei dati personali</a>.</p>
