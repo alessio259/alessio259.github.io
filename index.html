@@ -63,7 +63,7 @@ nav .btn{color:#1a0d07}
 
 /* hero */
 .hero{position:relative;overflow:clip}
-#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#stars{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hero .wrap{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:40px;align-items:start;padding-top:124px;padding-bottom:90px}
 .globecol{position:sticky;top:84px}
 .kicker{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
@@ -115,16 +115,6 @@ section.band{padding:110px 0;position:relative;overflow:hidden}
 .card h3{font-size:24px}
 .card p{color:var(--ink2);margin:0;font-size:16px}
 
-/* demo */
-.demo .wrap{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
-.phone{width:min(290px,78vw);aspect-ratio:600/1298;border-radius:38px;padding:10px;background:#000;border:1px solid var(--line);margin:0 auto;box-shadow:0 30px 70px -30px rgba(0,0,0,.8)}
-.phone video{display:block;width:100%;height:100%;object-fit:cover;object-position:top;border-radius:29px;background:var(--deep)}
-.vctl{display:block;margin:12px auto 0;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink2);background:none;border:0;text-decoration:underline;cursor:pointer}
-.shots{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:30px 0 0;padding:0;list-style:none}
-.shots figure{margin:0}
-.shots img{display:block;width:100%;height:auto;aspect-ratio:600/1298;object-fit:cover;object-position:top;border-radius:14px;border:1px solid var(--line);background:var(--deep)}
-.shots figcaption{font-size:13.5px;color:var(--ink2);margin-top:8px;line-height:1.35}
-.shots figcaption b{color:var(--ink);display:block;font-size:14.5px}
 
 /* guide */
 .guide{list-style:none;margin:48px 0 0;padding:0;counter-reset:g;display:grid;gap:12px;max-width:880px}
@@ -183,16 +173,33 @@ dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;paddin
   .globebox{max-width:440px}
   .trail,.grid3{grid-template-columns:1fr}
   .trail svg.path{display:none}
-  .demo .wrap{grid-template-columns:1fr;gap:28px}
-  .shots{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:1fr;padding:26px}
   .guide li{grid-template-columns:1fr;gap:10px}
   section.band{padding:80px 0}
 }
 @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn{transition:none} }
+
+/* Mappamondo 3D: in alto al posto del mappamondo, poi sfondo che continua a girare */
+#g3d{position:fixed;inset:0;z-index:0;cursor:grab;touch-action:pan-y}
+#g3d.grabbing{cursor:grabbing} #g3d.bg{pointer-events:none;cursor:auto}
+.g3d-canvas{position:absolute;inset:0;display:block}
+.g3d-labels{position:absolute;inset:0;pointer-events:none;transition:opacity .2s}
+.g3d-label{position:absolute;left:0;top:0;pointer-events:auto;font:700 12px/1.4 Manrope,sans-serif;color:var(--ink2);background:rgba(8,19,28,.62);border:0;border-radius:999px;padding:2px 8px;cursor:pointer;white-space:nowrap;will-change:transform}
+.g3d-label:hover,.g3d-label:focus-visible,.g3d-label.on{color:var(--ink);background:rgba(8,19,28,.86)}
+.g3d-label.home{color:var(--ink);cursor:default}
+.g3d-label.dot{width:22px;height:22px;padding:0;font-size:0;background:transparent;border-radius:50%}
+.g3d-label.dot:hover,.g3d-label.dot:focus-visible{font-size:12px;width:auto;height:auto;padding:2px 8px;background:rgba(8,19,28,.86);transform-origin:left}
+main,footer{position:relative;z-index:1}
+body.g3d .hero,body.g3d .hero>.wrap,body.g3d .globecol,body.g3d .globebox,body.g3d #globe{pointer-events:none}
+body.g3d .hero .wrap>div:first-child{pointer-events:auto}
+body.g3d section.band:not(.alt){background:rgba(8,19,28,.5)}
+body.g3d .alt{background:rgba(13,31,45,.74)}
+body.g3d footer{background:rgba(8,19,28,.85)}
 </style>
 </head>
 <body>
+<canvas id="stars" aria-hidden="true"></canvas>
+<div id="g3d"></div>
 <header>
   <div class="wrap">
     <a class="logo" href="#" translate="no">Rotte<span>.</span></a>
@@ -209,7 +216,6 @@ dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;paddin
 
 <main>
   <section class="hero" aria-label="Rotte">
-    <canvas id="stars" aria-hidden="true"></canvas>
     <div class="wrap">
       <div>
         <p class="kicker">Da qui a ovunque, porta a porta</p>
@@ -249,26 +255,6 @@ dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;paddin
     </div>
   </section>
 
-  <section class="band demo" id="demo">
-    <svg class="contours" data-seed="23" aria-hidden="true"></svg>
-    <div class="wrap">
-      <div>
-        <div class="phone"><video id="demo-video" poster="media/demo-poster.webp" muted loop playsinline preload="metadata" aria-label="Video: Rotte prepara un viaggio da Torino a Bangkok e la lista di cosa portare"><source src="media/rotte-demo.webm" type="video/webm"></video></div>
-        <button class="vctl" id="demo-ctl" type="button">Metti in pausa</button>
-      </div>
-      <div>
-        <p class="kicker">Guardala in azione</p>
-        <h2 class="sh">Da Torino a Bangkok in mezzo minuto.</h2>
-        <p class="sub">Partenza e arrivo, stile di viaggio, l'itinerario con ogni tratta e la lista di cosa portare. Dati di esempio.</p>
-        <ul class="shots">
-          <li><figure><img src="media/rotte-rotta.webp" alt="Schermata: Torino e Bangkok scelti sul mappamondo" loading="lazy" width="600" height="1298"><figcaption><b>Scegli la rotta</b>Due punti qualsiasi nel mondo.</figcaption></figure></li>
-          <li><figure><img src="media/rotte-itinerario.webp" alt="Schermata: itinerario da Torino a Bangkok con bus, aereo, treno e tuk-tuk, costi e durate" loading="lazy" width="600" height="1298"><figcaption><b>Ogni tratta</b>Mezzo, durata, costo e dove prenotare.</figcaption></figure></li>
-          <li><figure><img src="media/rotte-esplora.webp" alt="Schermata: proposte di tappe da Bangkok verso Chiang Mai, Hanoi, Siem Reap e altre mete" loading="lazy" width="600" height="1298"><figcaption><b>Esplora a tappe</b>Scegli dove andare dopo, col budget.</figcaption></figure></li>
-          <li><figure><img src="media/rotte-zaino.webp" alt="Schermata: lista di cosa portare con spunte e link ai negozi" loading="lazy" width="600" height="1298"><figcaption><b>Cosa portare</b>La lista per tutto il viaggio.</figcaption></figure></li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
   <section class="band alt" id="cosa">
     <svg class="contours" data-seed="29" aria-hidden="true"></svg>
@@ -406,6 +392,7 @@ dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;paddin
     "Prova una rotta: il mappamondo ti segue":"Try a route: the globe follows you",
     "Esempio con prezzi indicativi: nell'app Rotte calcola le tue date, il tuo budget e dove prenotare ogni tratta.":"Example with indicative prices: in the app, Rotte works out your dates, your budget and where to book each leg.",
     "Trascina per far girare il mondo":"Drag to spin the world",
+    "Mostra la rotta per":"Show the route to",
     "Tre tappe, e sei già in viaggio.":"Three steps, and you're on your way.",
     "Scegli due punti":"Pick two points",
     "Una città, un villaggio, un punto toccato sulla mappa. Aggiungi le soste che vuoi lungo la strada.":"A city, a village, any spot you tap on the map. Add the stops you want along the way.",
@@ -615,6 +602,7 @@ dialog.inv .mail{font-size:14px;background:var(--panel);border-radius:8px;paddin
 })();
 </script>
 <script src="media/globo.js"></script>
+<script src="media/globo3d.js"></script>
 <script>
 // Mappamondo interattivo con le rotte di esempio.
 (function(){
@@ -661,6 +649,13 @@ function pick(id, spin){
 pick("bkk", false);
 // mappamondo
 fetch("media/mondo-110m.json").then(function(x){ return x.json(); }).then(function(WORLD){
+  // Prima prova il mappamondo 3D (WebGL); se non va, resta quello disegnato in SVG
+  var pins3=[{id:"home", name:"Torino", c:P.tor, home:true}].concat(ROUTES.map(function(r){ return {id:r.id, name:r.name, c:P[r.legs[r.legs.length-1][2]]}; }));
+  var g3 = window.RotteGlobe3D && window.RotteGlobe3D.init({layer:document.getElementById("g3d"), anchor:document.querySelector(".globebox"), hero:document.querySelector(".hero"),
+    world:WORLD, routes:ROUTES, points:P, colors:C, pins:pins3, T:T, reduce:reduce, keyTarget:document.getElementById("globe"),
+    onPick:function(id){ pick(id, true); }, getSel:function(){ return sel; }});
+  if (g3){ document.body.classList.add("g3d"); spinTo=function(r){ g3.spinTo(r); g3.select(r.id); }; spinTo(ROUTES.filter(function(r){ return r.id===sel; })[0]); return; }
+  document.getElementById("g3d").remove();
   var svg=G.select("#globe"), land=G.feature(WORLD, WORLD.objects.countries), borders=G.mesh(WORLD, WORLD.objects.countries, function(a,b){ return a!==b; });
   var proj=G.geoOrthographic().clipAngle(90).precision(.5), path=G.geoPath(proj), grat=G.geoGraticule10();
   svg.html('<defs><radialGradient id="sea" cx="38%" cy="32%" r="75%"><stop offset="0%" stop-color="#1b4466"/><stop offset="100%" stop-color="#0a1d2c"/></radialGradient>'+
